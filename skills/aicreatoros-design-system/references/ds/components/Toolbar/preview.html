@@ -1,0 +1,23 @@
+<!-- @dsCard group="Dados" height=140 width=1180 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Toolbar: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+render(h('div', { className: 'card pad' },
+  h(D.Toolbar, {
+    search: 'Buscar alternativa', shortcut: '/',
+    note: h(React.Fragment, null, h('b', null, '1'), ' de 3 selecionada'),
+    end: [
+      h(D.Segmented, { label: 'Densidade', defaultValue: 'padrao', options: [{ value: 'compacta', label: 'Compacta' }, { value: 'padrao', label: 'Padrão' }, { value: 'confortavel', label: 'Confortável' }] }),
+      h(D.Button, { iconStart: 'doc' }, 'Exportar')
+    ]
+  },
+    h(D.Button, { iconStart: 'sliders' }, 'Filtrar'),
+    h(D.Button, { variant: 'ghost', iconStart: 'grid' }, 'Colunas'))));
+</script>
+</body>
+</html>

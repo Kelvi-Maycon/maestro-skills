@@ -1,0 +1,743 @@
+=== Wordmark | Marca | height=200
+var stage = { display: 'grid', placeItems: 'center', minHeight: '152px', padding: '32px' };
+render(h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' } },
+  h('div', { className: 'card', style: stage }, h(D.Wordmark, { size: 40 })),
+  h('div', { className: 'ink', style: stage }, h(D.Wordmark, { size: 40 }))));
+
+=== Icon | Marca | height=210
+var names = ['arrow', 'back', 'diag', 'down', 'plus', 'search', 'grid', 'pen', 'clock', 'alert', 'image', 'sliders', 'save', 'doc', 'layers', 'settings', 'ruler', 'mail', 'list'];
+render(h('div', { className: 'card pad' },
+  h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(10, minmax(0, 1fr))', gap: '20px 8px' } },
+    names.map(function (n) {
+      return h('div', { key: n, style: { display: 'grid', gap: '8px', justifyItems: 'center' } },
+        h(D.Icon, { name: n }), h('span', { className: 'mono muted' }, n));
+    }))));
+
+=== Anchor | Marca | height=160 | width=900
+render(h('div', { className: 'stack', style: { gap: '32px' } },
+  h(D.Anchor, { number: '06', label: 'Ações & campos' }),
+  h(D.Anchor, { number: '09', label: 'Dados' })));
+
+=== Label | Marca | height=200
+render(h('div', { className: 'card pad stack' },
+  h(D.Label, { label: '06.1 Botões', meta: 'Padrão 32 px · canto 8 · texto 14', style: { margin: 0 } }),
+  h(D.Label, { label: '07.3 Vazio', style: { margin: 0 } }),
+  h(D.Label, { label: 'Publicação', meta: h(D.Badge, { tone: 'draft' }, 'Rascunho'), style: { margin: 0 } })));
+
+=== Button | Ações | height=480 | width=1000
+function col(title, kids) {
+  return h('div', { style: { display: 'grid', gap: '12px', justifyItems: 'start', alignContent: 'start' } },
+    [h('span', { key: 't', className: 'mono muted' }, title)].concat(kids));
+}
+var grid = { display: 'grid', gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: '20px 16px' };
+render(h('div', { className: 'card pad' },
+  h(D.Label, { label: '06.1 Botões', meta: 'Padrão 32 px · canto 8 · texto 14' }),
+  h('div', { className: 'chips' },
+    h(D.Button, { variant: 'primary', icon: 'arrow' }, 'Ler a edição'),
+    h(D.Button, { variant: 'ink' }, 'Salvar rascunho'),
+    h(D.Button, { variant: 'line' }, 'Cancelar'),
+    h(D.Button, { variant: 'ghost', iconStart: 'sliders' }, 'Filtrar')),
+  h('div', { className: 'dash', style: { margin: '24px 0 20px' } }),
+  h('div', { style: grid },
+    col('Pequeno · 28', [h(D.Button, { key: 1, size: 'sm', variant: 'primary' }, 'Aplicar'), h(D.Button, { key: 2, size: 'sm' }, 'Limpar')]),
+    col('Padrão · 32', [h(D.Button, { key: 1, variant: 'primary', icon: 'arrow' }, 'Publicar'), h(D.Button, { key: 2 }, 'Cancelar')]),
+    col('Grande · 40', [h(D.Button, { key: 1, size: 'lg', variant: 'primary', icon: 'arrow' }, 'Ler a edição'), h(D.Button, { key: 2, size: 'lg' }, 'Ver o produto')]),
+    col('Só ícone', [h('div', { key: 1, className: 'chips' },
+      h(D.Button, { size: 'sm', iconOnly: true, icon: 'plus', label: 'Adicionar' }),
+      h(D.Button, { iconOnly: true, icon: 'plus', label: 'Adicionar' }),
+      h(D.Button, { size: 'lg', iconOnly: true, icon: 'plus', label: 'Adicionar' }))]),
+    col('Fantasma', [h(D.Button, { key: 1, variant: 'ghost', iconStart: 'sliders' }, 'Filtrar'), h(D.Button, { key: 2, size: 'sm', variant: 'ghost', iconStart: 'grid' }, 'Colunas')])),
+  h('div', { className: 'dash', style: { margin: '24px 0 20px' } }),
+  h('div', { style: grid },
+    col('Hover', [h(D.Button, { key: 1, variant: 'primary', icon: 'arrow', className: 'is-hover' }, 'Publicar'), h(D.Button, { key: 2, variant: 'ink', className: 'is-hover' }, 'Salvar')]),
+    col('Foco', [h(D.Button, { key: 1, variant: 'primary', icon: 'arrow', className: 'is-focus' }, 'Publicar'), h(D.Button, { key: 2, variant: 'ink', className: 'is-focus' }, 'Salvar')]),
+    col('Bloqueado', [h(D.Button, { key: 1, variant: 'primary', icon: 'arrow', disabled: true }, 'Publicar'), h(D.Button, { key: 2, variant: 'ink', disabled: true }, 'Salvar')]),
+    col('Carregando', [h(D.Button, { key: 1, variant: 'primary', busy: true }, 'Publicando'), h(D.Button, { key: 2, variant: 'ink', busy: true }, 'Salvando')]))));
+
+=== IconButton | Ações | height=180
+function col(title, kids) {
+  return h('div', { style: { display: 'grid', gap: '16px', justifyItems: 'start', alignContent: 'start' } },
+    [h('span', { key: 't', className: 'mono muted' }, title)].concat(kids));
+}
+render(h('div', { className: 'card pad', style: { display: 'grid', gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: '20px 16px' } },
+  col('Seta 32', [h('div', { key: 1, className: 'chips' }, h(D.IconButton, { variant: 'primary', label: 'Próxima' }), h(D.IconButton, { icon: 'back', label: 'Anterior' }))]),
+  col('Seta 28 e 40', [h('div', { key: 1, className: 'chips' }, h(D.IconButton, { variant: 'primary', size: 'sm', icon: 'diag', label: 'Abrir' }), h(D.IconButton, { size: 'lg', variant: 'primary', label: 'Ler a edição' }))]),
+  col('Hover', [h(D.IconButton, { key: 1, variant: 'primary', className: 'is-hover', label: 'Próxima' })]),
+  col('Foco', [h(D.IconButton, { key: 1, variant: 'primary', className: 'is-focus', label: 'Próxima' })]),
+  col('Bloqueado', [h(D.IconButton, { key: 1, disabled: true, label: 'Próxima' })])));
+
+=== Link | Ações | height=130
+render(h('div', { className: 'card pad chips', style: { gap: '32px' } },
+  h(D.Link, { href: '#', icon: 'diag' }, 'Abrir o comparativo'),
+  h(D.Link, { href: '#', icon: 'arrow' }, 'Abrir os dados'),
+  h(D.Link, { href: '#', icon: 'arrow' }, 'Ver o acervo')));
+
+=== Input | Campos | height=350
+render(h('div', { className: 'card pad stack', style: { maxWidth: '560px' } },
+  h(D.Input, { label: 'Seu e-mail', icon: 'mail', type: 'email', defaultValue: 'kelvi@aicreatoros.com', autoComplete: 'email' }),
+  h(D.Input, { label: 'Site da fonte', type: 'url', defaultValue: 'openai', error: 'Inclua o endereço completo, com https://' }),
+  h(D.Input, { label: 'Buscar no acervo', icon: 'search', type: 'search', placeholder: 'Modelo, ferramenta ou autor', kbd: '/' })));
+
+=== Select | Campos | height=270
+render(h('div', { className: 'card pad stack', style: { maxWidth: '560px' } },
+  h(D.Select, { label: 'Categoria', options: ['Modelos', 'Ferramentas', 'Agentes', 'Automação'] }),
+  h(D.Select, { label: 'Categoria', options: ['Agentes', 'Modelos', 'Ferramentas'], help: 'Define a seção da matéria no acervo.' })));
+
+=== Switch | Campos | height=190
+render(h('div', { className: 'card pad stack', style: { maxWidth: '560px' } },
+  h(D.Switch, { label: 'Receber a edição semanal', defaultChecked: true }),
+  h(D.Switch, { label: 'Avisar quando um teste for atualizado' })));
+
+=== Checkbox | Campos | height=170
+render(h('div', { className: 'card pad stack', style: { maxWidth: '560px', gap: '16px' } },
+  h('div', { className: 'chips', style: { gap: '8px 20px' } },
+    h(D.Checkbox, { label: 'Declarar imagem gerada', defaultChecked: true }),
+    h(D.Checkbox, { label: 'Mostrar a fonte no card' })),
+  h('div', { className: 'chips', role: 'radiogroup', 'aria-label': 'Frequência', style: { gap: '8px 20px' } },
+    h(D.Checkbox, { type: 'radio', name: 'freq', label: 'Semanal', defaultChecked: true }),
+    h(D.Checkbox, { type: 'radio', name: 'freq', label: 'Quinzenal' }),
+    h(D.Checkbox, { type: 'radio', name: 'freq', label: 'Mensal' }))));
+
+=== ChipGroup | Campos | height=140
+render(h('div', { className: 'card pad' },
+  h(D.ChipGroup, { label: 'Filtro por categoria', options: ['Todas', 'Modelos', 'Ferramentas', 'Agentes'], addLabel: 'Filtro' })));
+
+=== Segmented | Campos | height=140
+render(h('div', { className: 'card pad' },
+  h(D.Segmented, { label: 'Modo de exibição', options: [{ value: 'grid', label: 'Grade', icon: 'grid' }, { value: 'list', label: 'Lista', icon: 'list' }] })));
+
+=== Tabs | Campos | height=140
+render(h('div', { className: 'card pad' },
+  h(D.Tabs, { label: 'Matérias por estado', options: [
+    { value: 'todas', label: 'Todas', count: 24 },
+    { value: 'rascunhos', label: 'Rascunhos', count: 3 },
+    { value: 'agendadas', label: 'Agendadas', count: 2 },
+    { value: 'publicadas', label: 'Publicadas', count: 19 }
+  ] })));
+
+=== Kbd | Campos | height=200
+render(h('div', { className: 'card pad stack', style: { maxWidth: '560px' } },
+  h('div', { className: 'chips' }, h(D.Kbd, null, '/'), h('span', { className: 'help' }, 'Leva o foco para a busca')),
+  h(D.Input, { label: 'Buscar no acervo', icon: 'search', type: 'search', placeholder: 'Modelo, ferramenta ou autor', kbd: '/' })));
+
+=== Badge | Feedback | height=250
+render(h('div', { className: 'stack' },
+  h('div', { className: 'card pad chips' },
+    h(D.Badge, { tone: 'positive' }, 'Publicado'),
+    h(D.Badge, { tone: 'live' }, 'Em revisão'),
+    h(D.Badge, null, 'Agendado'),
+    h(D.Badge, { tone: 'draft' }, 'Rascunho'),
+    h(D.Badge, { tone: 'warn' }, 'Fonte pendente'),
+    h(D.Badge, { tone: 'neg' }, 'Envio parou'),
+    h(D.Badge, { tone: 'info' }, 'Novo'),
+    h(D.Badge, { tone: 'neg', square: true }, 'maior queda')),
+  h('div', { className: 'ink pad chips' },
+    h(D.Badge, { tone: 'positive' }, 'Publicado'),
+    h(D.Badge, { tone: 'live' }, 'Em revisão'),
+    h(D.Badge, null, 'Agendado'),
+    h(D.Badge, { tone: 'draft' }, 'Rascunho'))));
+
+=== Status | Feedback | height=120
+render(h('div', { className: 'card pad chips', style: { gap: '10px 18px' } },
+  h(D.Status, { tone: 'positive' }, 'Sincronizado'),
+  h(D.Status, { tone: 'warn' }, 'Atrasado 2 h'),
+  h(D.Status, { tone: 'neg' }, 'Falhou'),
+  h(D.Status, { tone: 'idle' }, 'Pausado'),
+  h(D.Status, { tone: 'live' }, 'Ao vivo'),
+  h(D.Status, { tone: 'warn', label: 'Atrasado' })));
+
+=== Delta | Feedback | height=160
+render(h('div', { className: 'card pad stack', style: { gap: '14px' } },
+  h('div', { className: 'chips', style: { gap: '10px 18px' } },
+    h(D.Delta, { direction: 'up' }, '3,1%'),
+    h(D.Delta, { direction: 'down' }, '1,2 p.p.'),
+    h(D.Delta, { direction: 'flat' }, '0,0%')),
+  h('div', { className: 'chips', style: { gap: '10px 18px' } },
+    h(D.Delta, { direction: 'down', tone: 'good' }, '53%'),
+    h(D.Delta, { direction: 'down', tone: 'bad' }, '16 p.p.'),
+    h(D.Delta, { direction: 'up', tone: 'plain' }, '12%'))));
+
+=== Toast | Feedback | height=210
+render(h('div', { className: 'card pad stack' },
+  h(D.Toast, { icon: 'save', meta: '09:42' }, 'Rascunho salvo'),
+  h(D.Toast, { tone: 'positive', icon: 'mail', meta: 'Desfazer' }, 'Edição publicada para 12,4 mil assinantes')));
+
+=== Banner | Feedback | height=180
+render(h('div', { className: 'card pad', style: { maxWidth: '560px' } },
+  h(D.Banner, { title: 'Três matérias sem fonte declarada' }, 'A publicação fica bloqueada até cada número ter a amostra ao lado.')));
+
+=== Tooltip | Feedback | height=190
+render(h('div', { className: 'card pad', style: { display: 'flex', gap: '48px', alignItems: 'end' } },
+  h(D.Tooltip, { label: 'Publica na data agendada', open: true, align: 'start' },
+    h('span', { className: 'mono' }, 'Tooltip · 13 px, aparece em foco e em hover')),
+  h(D.Tooltip, { label: 'Publica na data agendada' },
+    h(D.IconButton, { icon: 'clock', label: 'Agendar' }))));
+
+=== Dialog | Feedback | height=290
+render(h(D.Dialog, {
+  kicker: 'Publicar edição 07',
+  title: h(React.Fragment, null, 'Publicar ', h('em', null, 'agora?')),
+  confirmLabel: 'Publicar'
+}, 'A edição vai para 12,4 mil assinantes e fica pública no site. Dá para desfazer nos primeiros cinco minutos.'));
+
+=== Meter | Feedback | height=260
+render(h('div', { className: 'card pad stack', style: { maxWidth: '560px' } },
+  h(D.Meter, { label: 'Enviando · 8.320 de 12.400', value: 67, caption: 'Progresso determinado · barra 8 px' }),
+  h(D.Meter, { value: 48.2, goal: 50, scale: true, 'aria-label': 'Taxa de abertura 48,2%, meta 50%' }),
+  h(D.Meter, { value: 48.2, goal: 50, small: true, 'aria-label': 'Abertura 48,2%' })));
+
+=== EmptyState | Feedback | height=290 | width=900
+render(h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', alignItems: 'start' } },
+  h(D.EmptyState, { title: h(React.Fragment, null, 'Nenhum rascunho ', h('em', null, 'ainda.')),
+    actions: h(D.Button, { variant: 'primary', icon: 'plus' }, 'Nova matéria') },
+    'Toda matéria começa por uma pauta. A primeira leva cerca de dois minutos.'),
+  h(D.EmptyState, { tone: 'error', title: h(React.Fragment, null, 'O envio ', h('em', null, 'parou.')),
+    actions: h('div', { className: 'chips', style: { justifyContent: 'center' } },
+      h(D.Button, { variant: 'line' }, 'Ver registro'), h(D.Button, { variant: 'primary' }, 'Tentar de novo')) },
+    'Falha na conexão com o provedor de e-mail às 09:44. Nada foi enviado em duplicidade.')));
+
+=== Skeleton | Feedback | height=350
+render(h('div', { className: 'card pad stack', style: { maxWidth: '420px', gap: '16px' } },
+  h(D.Skeleton, null),
+  h('div', { className: 'dash' }),
+  h('div', { className: 'chips' },
+    h(D.Button, { variant: 'ink', busy: true }, 'Carregando'),
+    h('span', { className: 'help' }, 'Esqueleto com a forma do conteúdo, nunca um giro solto.'))));
+
+=== Card | Leitura | height=620
+render(h('div', { style: { maxWidth: '520px' } },
+  h(D.Card, {
+    image: IMG.astra560, tag: '01 / Modelos', meta: 'Modelos · 14 set 2026',
+    title: h(React.Fragment, null, h('em', null, 'GPT-6 Astra:'), ' da abertura à segurança'),
+    readTime: '6 min de leitura'
+  }, 'O que muda no acesso, o que continua fechado e o teste com 400 tickets antes de recomendar.')));
+
+=== Row | Leitura | height=160
+render(h('div', { style: { maxWidth: '560px' } },
+  h(D.Row, { image: IMG.gemini320, kicker: 'Modelos', title: 'Gemini 3.8 Flash muda a conta' }, 'Latência menor, custo menor, precisão igual.')));
+
+=== Quote | Leitura | height=250
+render(h('div', { style: { maxWidth: '560px' } },
+  h(D.Quote, { kicker: 'Ponto de vista', initial: 'K', author: 'Kelvi Maycon · editorial da edição 07' },
+    'Uma ferramenta economiza tempo de digitação, ', h('em', null, 'não de decisão.'))));
+
+=== Note | Leitura | height=160
+render(h('div', { style: { maxWidth: '560px' } },
+  h(D.Note, { kicker: 'Ressalva' }, 'Recorte de 400 tickets em 14 dias, uma empresa só. Em fila mais simples o número sobe; em fila técnica, cai.')));
+
+=== Avatar | Leitura | height=150
+render(h('div', { className: 'card pad chips', style: { gap: '32px' } },
+  h('div', { className: 'chips' },
+    h(D.Avatar, { initial: 'K', 'aria-label': 'Kelvi Maycon' }),
+    h(D.Avatar, { initial: 'K', size: 28, style: { fontSize: '15px' } }),
+    h(D.Avatar, { src: IMG.perfil144, alt: 'Três esferas de pedra num pátio ao pôr do sol.', size: 48 })),
+  h('div', { className: 'avatars' },
+    h(D.Avatar, { mark: true, tone: 'ink' }),
+    h(D.Avatar, { mark: true, tone: 'orange' }),
+    h(D.Avatar, { mark: true, tone: 'paper' }),
+    h(D.Avatar, { initial: 'K' }))));
+
+=== Reader | Leitura | height=1540 | width=1280
+render(h(D.Reader, {
+  kicker: 'Modelos · edição 07',
+  title: h(React.Fragment, null, 'Antes de adotar, ', h('em', null, 'entenda.')),
+  lead: 'Entre o anúncio e a sua rotina existe uma pergunta que ninguém responde no palco: o que muda no seu trabalho na segunda-feira?',
+  author: { name: 'Kelvi Maycon', initial: 'K', meta: '14 set 2026 · 6 min de leitura' },
+  figure: { src: IMG.astra560, alt: 'Templo de colunas com uma porta estreita irradiando luz laranja.', caption: 'Um arquivo aberto, mas sob controle.', credit: 'Noir Dither · imagem gerada' },
+  aside: h(React.Fragment, null,
+    h('h4', null, 'Ficha do teste'),
+    h(D.Spec, { items: [
+      { term: 'Modelo', value: 'GPT-6 Astra' },
+      { term: 'Fonte', value: 'nota de lançamento, 9 set' },
+      { term: 'Amostra', value: '400 tickets · 14 dias' },
+      { term: 'Empresa', value: 'uma, SaaS B2B' },
+      { term: 'Status', value: h(D.Badge, { tone: 'positive' }, 'Publicado') }
+    ] }),
+    h(D.Link, { href: '#', icon: 'arrow' }, 'Abrir os dados')),
+  prev: { image: IMG.mcp320, title: 'Caminhos do MCP em 2026' },
+  next: { image: IMG.gemini320, title: 'Gemini 3.8 Flash muda a conta' }
+},
+  h('p', { className: 'lead' }, 'Uma ferramenta pode chamar atenção antes de mostrar onde realmente ajuda. O trabalho editorial começa nesse intervalo: medir antes de recomendar.'),
+  h('p', null, 'Fechei a amostra antes de começar: 400 tickets reais de suporte, 14 dias, uma empresa. O modelo respondeu todos. Em 124 casos a resposta foi aceita sem edição. Nos outros, alguém precisou reescrever, completar ou descartar.'),
+  h('h4', null, 'O que o número não diz'),
+  h('p', null, 'Aderência de 31% parece baixa até você olhar o tempo: cada ticket passou de 5,1 para 2,4 minutos, porque revisar é mais rápido do que escrever. O ganho está na fila, não na resposta perfeita.'),
+  h('blockquote', null, 'O ganho está na fila, ', h('em', null, 'não na resposta perfeita.')),
+  h('p', null, 'A recomendação, então, é condicional. Vale para times com fila alta e respostas padronizáveis. Não vale para suporte técnico de segundo nível, onde os 69% de reescrita custam mais do que o tempo poupado. A ', h('a', { href: '#' }, 'tabela completa'), ' está no fim da matéria.')));
+
+=== Spec | Leitura | height=320
+render(h('div', { className: 'card pad', style: { maxWidth: '360px' } },
+  h(D.Spec, { items: [
+    { term: 'Modelo', value: 'GPT-6 Astra' },
+    { term: 'Fonte', value: 'nota de lançamento, 9 set' },
+    { term: 'Amostra', value: '400 tickets · 14 dias' },
+    { term: 'Empresa', value: 'uma, SaaS B2B' },
+    { term: 'Status', value: h(D.Badge, { tone: 'positive' }, 'Publicado') }
+  ] })));
+
+=== Slide | Leitura | height=450 | width=1040
+render(h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '16px', alignItems: 'start' } },
+  h(D.Slide, { variant: 'cover', image: IMG.arcos480, kicker: 'Teste de campo', handle: '@aicreatoros', page: '1 / 3',
+    title: h(React.Fragment, null, 'Três IAs no suporte. Uma aprovou quase ', h('em', null, 'metade.')) }),
+  h(D.Slide, { variant: 'paper', kicker: 'Aprovadas sem edição, de 400', handle: '@aicreatoros', page: '2 / 3',
+    note: 'Uma empresa B2B, 14 dias, avaliação cega',
+    bars: [
+      { label: 'Claude Fable 5.1', value: 47, unit: '%', highlight: true },
+      { label: 'GPT-6 Astra', value: 31, unit: '%' },
+      { label: 'Gemini 3.8 Flash', value: 22, unit: '%' }
+    ] }),
+  h(D.Slide, { variant: 'end', handle: '@aicreatoros', page: '3 / 3', note: 'A tabela e a ressalva estão no site',
+    title: h(React.Fragment, null, 'Comente ', h('em', null, 'TESTE'), ' e receba o método completo.') })));
+
+=== DataPanel | Dados | height=560 | width=1180
+render(h(D.DataPanel, {
+  kicker: 'Teste · GPT-6 Astra',
+  title: h(React.Fragment, null, 'Antes de escalar, ', h('em', null, 'teste.')),
+  source: { value: '400 tickets reais de suporte', meta: 'Amostra fechada · 31 ago 2026' }
+},
+  h(D.Ledger, { items: [
+    { label: 'Aderência', value: '31', unit: '%', highlight: true, delta: { direction: 'down', tone: 'bad', value: '16 p.p.' }, compare: 'abaixo do Fable 5.1', note: '124 respostas aceitas sem edição, de 400.' },
+    { label: 'Tickets', value: '400', compare: '1 empresa · suporte', note: 'Amostra fechada antes do teste começar.' },
+    { label: 'Dias', value: '14', compare: '18 – 31 ago', note: 'Duas paradas para ajuste de prompt.' },
+    { label: 'Tempo por ticket', value: '2,4', unit: 'min', delta: { direction: 'down', tone: 'good', value: '53%' }, compare: 'era 5,1 min', note: 'Medido do primeiro contato ao fechamento.' }
+  ] }),
+  h(D.TargetTrack, { label: 'Aderência medida contra a meta declarada', value: 31, target: 80 })));
+
+=== Ledger | Dados | height=280 | width=1180
+var items = [
+  { label: 'Aderência', value: '31', unit: '%', highlight: true, delta: { direction: 'down', tone: 'bad', value: '16 p.p.' }, compare: 'abaixo do Fable 5.1', note: '124 respostas aceitas sem edição, de 400.' },
+  { label: 'Tickets', value: '400', compare: '1 empresa · suporte', note: 'Amostra fechada antes do teste começar.' },
+  { label: 'Dias', value: '14', compare: '18 – 31 ago', note: 'Duas paradas para ajuste de prompt.' },
+  { label: 'Tempo por ticket', value: '2,4', unit: 'min', delta: { direction: 'down', tone: 'good', value: '53%' }, compare: 'era 5,1 min', note: 'Medido do primeiro contato ao fechamento.' }
+];
+render(h('div', { className: 'ink', style: { padding: '32px' } },
+  h(D.Ledger, { items: items })));
+
+=== TargetTrack | Dados | height=250 | width=1000
+render(h('div', { className: 'ink', style: { padding: '32px' } },
+  h(D.TargetTrack, { label: 'Aderência medida contra a meta declarada', value: 31, target: 80 })));
+
+=== Metric | Dados | height=150
+render(h('div', { className: 'card pad chips', style: { gap: '40px', alignItems: 'baseline' } },
+  h(D.Metric, { size: 'lg', value: '12.400' }),
+  h(D.Metric, { value: '48,2', unit: '%' }),
+  h(D.Metric, { size: 'sm', value: '2,4', unit: 'min' })));
+
+=== Stat | Dados | height=680 | width=1000
+var ASSINANTES = [10260, 10375, 10472, 10599, 10702, 10823, 10962, 11077, 11210, 11367, 11518, 11812, 12034, 12400];
+render(h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '20px', alignItems: 'stretch' } },
+  h(D.Stat, { icon: 'list', label: 'Assinantes', aside: '1 – 14 set', value: '12.400', size: 'lg', delta: h(D.Delta, { direction: 'up' }, '3,1%'),
+    viz: h(D.Sparkline, { values: ASSINANTES }),
+    foot: h(React.Fragment, null, h('b', null, '+374'), ' no período: 412 entradas e 38 saídas') }),
+  h(D.Stat, { icon: 'doc', label: 'Leitura completa', aside: '1 – 14 set', value: '6.134', size: 'lg', note: 'leituras até o fim',
+    row: [h(D.Ring, { key: 'r', value: 33.3 }), h('p', { key: 'p' }, h('b', null, '33,3% das 18.420 visitas'), 'chegaram ao fim da matéria')],
+    foot: 'Conta como lida a rolagem acima de 90%' }),
+  h(D.Stat, { icon: 'mail', label: 'Taxa de abertura', aside: h(D.Badge, { tone: 'warn' }, 'Abaixo da meta'), value: '48,2', unit: '%', size: 'lg', delta: h(D.Delta, { direction: 'down' }, '1,2 p.p.'),
+    viz: h(D.Meter, { value: 48.2, goal: 50, scale: true, 'aria-label': 'Taxa de abertura 48,2%, meta 50%' }),
+    foot: h(React.Fragment, null, h('b', null, '5.977'), ' de 12.400 abriram a edição 07') }),
+  h(D.Stat, { icon: 'layers', label: 'Aderência por modelo', aside: 'De 400', value: '47', unit: '%', size: 'lg', note: 'Claude Fable 5.1, 16 p.p. à frente',
+    viz: h(D.HBars, { max: 100, items: [
+      { label: 'Claude Fable 5.1', value: 47, valueLabel: '47%', highlight: true },
+      { label: 'GPT-6 Astra', value: 31, valueLabel: '31%' },
+      { label: 'Gemini 3.8 Flash', value: 22, valueLabel: '22%' }
+    ] }),
+    foot: 'Aprovadas sem edição, avaliação cega' }),
+  h(D.Stat, { icon: 'ruler', label: 'Testes do mês', aside: 'Meta 10', value: '7', unit: 'de 10', size: 'lg', note: 'faltam 3 para a meta',
+    viz: h(D.Pips, { total: 10, filled: 4, highlighted: 3 }),
+    foot: h(D.Legend, { items: [{ tone: 'on', label: '4 publicados' }, { tone: 'hi', label: '3 em revisão' }, { tone: 'off', label: '3 a fazer' }] }) }),
+  h(D.Stat, { icon: 'plus', label: 'Novas assinaturas', aside: '14 dias', value: '412', size: 'lg', delta: h(D.Delta, { direction: 'up' }, '12%'),
+    viz: h(D.Spark, { values: [28, 34, 30, 38, 31, 36, 41, 34, 39, 45, 44, 81, 62, 100] }),
+    foot: h(React.Fragment, null, 'Pico em ', h('b', null, '14 set'), ', dia da edição 07: ', h('b', null, '64')) })));
+
+=== Stats | Dados | height=240 | width=1440
+function stat(label, value, unit, dir, delta, foot, tone) {
+  return h(D.Stat, { key: label, label: label, value: value, unit: unit, delta: h(D.Delta, { direction: dir, tone: tone }, delta), foot: foot });
+}
+function b(t) { return h('b', null, t); }
+var F = React.Fragment;
+var KPIS = [
+  stat('Assinantes', '12.400', null, 'up', '3,1%', h(F, null, 'eram ', b('12.026'), ' em 31 ago')),
+  stat('Abertura', '48,2', '%', 'down', '1,2 p.p.', h(F, null, b('5.977'), ' abriram · meta 50%')),
+  stat('Cliques', '1.930', null, 'down', '2,3%', h(F, null, b('32,3%'), ' de quem abriu')),
+  stat('Leitura completa', '33,3', '%', 'up', '2,1 p.p.', h(F, null, b('6.134'), ' leram até o fim')),
+  stat('Novas assinaturas', '412', null, 'up', '12%', h(F, null, 'pico de ', b('64'), ' em 14 set')),
+  stat('Descadastros', '38', null, 'down', '9%', h(F, null, b('0,3%'), ' da base'), 'good'),
+  stat('Receita', h(F, null, h('small', null, 'R$'), '18,6'), 'mil', 'up', '8%', 'patrocínio e afiliados'),
+  stat('Receita média', h(F, null, h('small', null, 'R$'), '1,50'), null, 'up', '5%', h(F, null, 'por assinante · era ', b('R$ 1,43')))
+];
+render(h('article', { className: 'card panel' }, h(D.Stats, null, KPIS)));
+
+=== Spark | Dados | height=160
+render(h('div', { className: 'card pad', style: { maxWidth: '360px' } },
+  h(D.Spark, { height: 48, label: 'Assinaturas por dia, 1 a 14 set, pico em 14 set', values: [33, 40, 35, 45, 38, 44, 49, 42, 47, 55, 53, 95, 75, 100] })));
+
+=== Ring | Dados | height=220
+render(h('div', { className: 'card pad chips', style: { gap: '32px' } },
+  h(D.Ring, { value: 33.3 }),
+  h(D.Ring, { value: 48.2, size: 'lg', valueLabel: '48,2%' })));
+
+=== Pips | Dados | height=150
+render(h('div', { className: 'card pad stack', style: { maxWidth: '360px', gap: '12px' } },
+  h(D.Pips, { total: 10, filled: 4, highlighted: 3, label: '7 de 10 testes: 4 publicados, 3 em revisão' }),
+  h('span', { className: 'help' }, '4 publicados · 3 em revisão · meta 10')));
+
+=== Sparkline | Dados | height=200 | width=760
+render(h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' } },
+  h('div', { className: 'card pad stack', style: { gap: '12px' } },
+    h('span', { className: 'mono muted' }, 'Assinantes · 1 – 14 set'),
+    h(D.Sparkline, { values: [10260, 10375, 10472, 10599, 10702, 10823, 10962, 11077, 11210, 11367, 11518, 11812, 12034, 12400], label: 'Assinantes subindo de 10.260 para 12.400 entre 1 e 14 set' })),
+  h('div', { className: 'card pad stack', style: { gap: '12px' } },
+    h('span', { className: 'mono muted' }, 'Novas assinaturas · destaque'),
+    h(D.Sparkline, { highlight: true, values: [18, 22, 19, 24, 20, 23, 26, 22, 25, 29, 28, 52, 40, 64], label: 'Novas assinaturas por dia, pico de 64 em 14 set' }))));
+
+=== Chart | Dados | height=390 | width=900
+var DIAS = [18, 22, 19, 24, 20, 23, 26, 22, 25, 29, 28, 52, 40, 64];
+render(h('div', { className: 'card pad stack', style: { gap: '20px' } },
+  h('div', { className: 'panel-head', style: { margin: 0 } },
+    h('div', null, h('h4', null, 'Assinaturas por dia'), h('p', null, '412 no período · média de 29 por dia')),
+    h(D.Legend, { items: [{ label: 'Dia comum' }, { label: 'Dia de edição', tone: 'hi' }, { label: 'Média', tone: 'avg' }] })),
+  h(D.Chart, {
+    values: DIAS,
+    dates: DIAS.map(function (v, i) { return (i + 1) + ' set'; }),
+    average: true, highlight: 13, annotation: 'Edição 07',
+    label: 'Assinaturas por dia de 1 a 14 de setembro. Média de 29 por dia; pico de 64 em 14 set, dia da edição 07.'
+  })));
+
+=== StackBar | Dados | height=140 | width=640
+render(h('div', { className: 'card pad stack', style: { gap: '12px' } },
+  h('span', { className: 'mono muted' }, 'Origem das assinaturas · 412'),
+  h(D.StackBar, { label: 'Matéria 52%, home 29%, social 19%', items: [{ value: 52, tone: 'hi' }, { value: 29, tone: 'on' }, { value: 19 }] })));
+
+=== Breakdown | Dados | height=240 | width=640
+render(h('div', { className: 'card pad' },
+  h(D.Breakdown, { items: [
+    { label: 'Matéria', share: '52%', value: '214', tone: 'hi', delta: { direction: 'up', value: '18%' } },
+    { label: 'Home', share: '29%', value: '118', tone: 'on', delta: { direction: 'down', value: '6%' } },
+    { label: 'Social', share: '19%', value: '80', delta: { direction: 'up', value: '4%' } }
+  ] })));
+
+=== Insight | Dados | height=170 | width=640
+render(h('div', { className: 'card pad' },
+  h(D.Insight, null, 'O formulário no fim da matéria traz ', h('b', null, 'mais da metade'), ' das assinaturas e cresceu 18% contra o período anterior.')));
+
+=== Legend | Dados | height=120 | width=640
+render(h('div', { className: 'card pad' },
+  h(D.Legend, { items: [{ label: 'Dia comum' }, { label: 'Dia de edição', tone: 'hi' }, { label: 'Média', tone: 'avg' }] })));
+
+=== HBars | Dados | height=250
+render(h(D.Panel, { title: 'Assinaturas por origem', caption: '412 no período', style: { maxWidth: '480px' } },
+  h(D.HBars, { items: [
+    { label: 'Matéria', value: 214, highlight: true },
+    { label: 'Home', value: 118 },
+    { label: 'Social', value: 80 }
+  ] })));
+
+=== Funnel | Dados | height=530 | width=640
+var STEPS = [
+  { label: 'Visitas', sub: 'Home e matérias', value: 18420 },
+  { label: 'Leitura completa', sub: 'Rolagem acima de 90%', value: 6134, rateLabel: 'leem até o fim' },
+  { label: 'Assinaturas', sub: 'Formulário no fim da matéria', value: 412, rateLabel: 'assinam' },
+  { label: 'Primeira edição aberta', sub: 'Edição 07', value: 239, rateLabel: 'abrem a primeira edição' }
+];
+function App() {
+  var s = React.useState('count');
+  return h(D.Panel, { kicker: 'Conversão · 1 – 14 set 2026', title: h(React.Fragment, null, 'Funil do ', h('em', null, 'período')), caption: 'Da visita no site à primeira edição aberta',
+    tools: h(D.Segmented, { label: 'Mostrar no funil', defaultValue: 'count', onChange: s[1], options: [{ value: 'count', label: 'Quantidade' }, { value: 'rate', label: 'Taxa' }] }) },
+    h(D.Funnel, { steps: STEPS, show: s[0] }));
+}
+render(h(App));
+
+=== Panel | Dados | height=820 | width=1440
+var DIAS = [18, 22, 19, 24, 20, 23, 26, 22, 25, 29, 28, 52, 40, 64];
+function stat(label, value, unit, dir, delta, foot, tone) {
+  return h(D.Stat, { key: label, label: label, value: value, unit: unit, delta: h(D.Delta, { direction: dir, tone: tone }, delta), foot: foot });
+}
+function b(t) { return h('b', null, t); }
+var F = React.Fragment;
+var KPIS = [
+  stat('Assinantes', '12.400', null, 'up', '3,1%', h(F, null, 'eram ', b('12.026'), ' em 31 ago')),
+  stat('Abertura', '48,2', '%', 'down', '1,2 p.p.', h(F, null, b('5.977'), ' abriram · meta 50%')),
+  stat('Cliques', '1.930', null, 'down', '2,3%', h(F, null, b('32,3%'), ' de quem abriu')),
+  stat('Leitura completa', '33,3', '%', 'up', '2,1 p.p.', h(F, null, b('6.134'), ' leram até o fim')),
+  stat('Novas assinaturas', '412', null, 'up', '12%', h(F, null, 'pico de ', b('64'), ' em 14 set')),
+  stat('Descadastros', '38', null, 'down', '9%', h(F, null, b('0,3%'), ' da base'), 'good'),
+  stat('Receita', h(F, null, h('small', null, 'R$'), '18,6'), 'mil', 'up', '8%', 'patrocínio e afiliados'),
+  stat('Receita média', h(F, null, h('small', null, 'R$'), '1,50'), null, 'up', '5%', h(F, null, 'por assinante · era ', b('R$ 1,43')))
+];
+render(h(D.Panel, {
+  kicker: 'Newsletter · 1 – 14 set 2026',
+  title: h(F, null, 'Desempenho da ', h('em', null, 'newsletter')),
+  caption: 'Oito indicadores do período, comparados com 18 – 31 ago',
+  tools: [
+    h(D.Segmented, { key: 'p', label: 'Período', defaultValue: '14', options: [{ value: '7', label: '7 dias' }, { value: '14', label: '14 dias' }, { value: '30', label: '30 dias' }] }),
+    h(D.Button, { key: 'e', iconStart: 'doc' }, 'Exportar')
+  ],
+  stats: h(D.Stats, null, KPIS),
+  sections: [
+    { title: h(F, null, 'Assinaturas ', h('em', null, 'por dia')), caption: '412 no período · média de 29 por dia',
+      tools: h(D.Legend, { items: [{ label: 'Dia comum' }, { label: 'Dia de edição', tone: 'hi' }, { label: 'Média', tone: 'avg' }] }),
+      content: h(D.Chart, { values: DIAS, dates: DIAS.map(function (v, i) { return (i + 1) + ' set'; }), average: true, highlight: 13, annotation: 'Edição 07',
+        label: 'Assinaturas por dia de 1 a 14 de setembro. Média de 29 por dia; pico de 64 em 14 set, dia da edição 07.' }) },
+    { title: h(F, null, 'De onde ', h('em', null, 'vêm')), caption: '412 no período, por formulário',
+      content: h(F, null,
+        h(D.StackBar, { label: 'Matéria 52%, home 29%, social 19%', items: [{ value: 52, tone: 'hi' }, { value: 29, tone: 'on' }, { value: 19 }] }),
+        h(D.Breakdown, { items: [
+          { label: 'Matéria', share: '52%', value: '214', tone: 'hi', delta: { direction: 'up', value: '18%' } },
+          { label: 'Home', share: '29%', value: '118', tone: 'on', delta: { direction: 'down', value: '6%' } },
+          { label: 'Social', share: '19%', value: '80', delta: { direction: 'up', value: '4%' } }
+        ] }),
+        h(D.Insight, null, 'O formulário no fim da matéria traz ', h('b', null, 'mais da metade'), ' das assinaturas e cresceu 18% contra o período anterior.')) }
+  ]
+}));
+
+=== SecHead | Dados | height=240 | width=1180
+render(h('div', { className: 'card pad' }, h(D.SecHead, {
+  kicker: 'Matérias · 1 – 14 set 2026',
+  title: h(React.Fragment, null, 'As doze mais ', h('em', null, 'lidas')),
+  caption: 'Leitura, conclusão e conversão de cada matéria. Ícone diz o tipo, faixa colorida diz se passou da meta de leitura até o fim.',
+  tools: [h(D.Button, { key: 'x', iconStart: 'doc' }, 'Exportar')]
+})));
+
+=== Toolbar | Dados | height=140 | width=1180
+render(h('div', { className: 'card pad' },
+  h(D.Toolbar, {
+    search: 'Buscar alternativa', shortcut: '/',
+    note: h(React.Fragment, null, h('b', null, '1'), ' de 3 selecionada'),
+    end: [
+      h(D.Segmented, { label: 'Densidade', defaultValue: 'padrao', options: [{ value: 'compacta', label: 'Compacta' }, { value: 'padrao', label: 'Padrão' }, { value: 'confortavel', label: 'Confortável' }] }),
+      h(D.Button, { iconStart: 'doc' }, 'Exportar')
+    ]
+  },
+    h(D.Button, { iconStart: 'sliders' }, 'Filtrar'),
+    h(D.Button, { variant: 'ghost', iconStart: 'grid' }, 'Colunas'))));
+
+=== Table | Dados | height=1830 | width=1440
+var F = React.Fragment;
+function dl(dir, v, tone) { return { value: h(D.Delta, { direction: dir, tone: tone }, v + '%'), sort: dir === 'down' ? -v : v }; }
+function st(tone, label, sub, sort) { return { value: h(D.Status, { tone: tone }, label), sub: sub, sort: sort }; }
+function abrir(r) { return h(D.Button, { variant: 'ghost', size: 'sm', iconOnly: true, icon: 'arrow', label: 'Abrir ' + r.label }); }
+var DENS = { compacta: 'compacta', padrao: undefined, confortavel: 'confortavel' };
+function densidade(set) {
+  return h(D.Segmented, { label: 'Densidade', defaultValue: 'padrao', onChange: set, options: [{ value: 'compacta', label: 'Compacta' }, { value: 'padrao', label: 'Padrão' }, { value: 'confortavel', label: 'Confortável' }] });
+}
+/* 09.4: oito alternativas em grupos, com seleção, faixa de nota e valor ausente. */
+var ALT = [
+  ['fable', 'layers', 'Claude Fable 5.1', 'Modelo · via API', 47, ['good', '4,6'], '1,9 min', 63, 'R$ 2,10', dl('up', 27, 'bad'), st('live', 'Em revisão', 'desde 12 set', 2)],
+  ['astra', 'layers', 'GPT-6 Astra', 'Modelo · via API', 31, ['warn', '3,8'], '2,4 min', 53, 'R$ 1,80', dl('up', 9, 'bad'), st('positive', 'Publicado', '31 ago', 1)],
+  ['gemini', 'layers', 'Gemini 3.8 Flash', 'Modelo · via API', 22, ['warn', '3,1'], { value: '1,2 min', best: true }, 76, { value: 'R$ 0,60', best: true }, dl('down', 64, 'good'), st('idle', 'Rascunho', 'na fila', 3)],
+  ['triagem', 'settings', 'Agente de triagem', 'Agente · 3 ferramentas', 41, ['good', '4,2'], '2,8 min', 45, 'R$ 3,40', dl('up', 105, 'bad'), st('live', 'Em revisão', 'desde 10 set', 2)],
+  ['sonnet', 'layers', 'Claude Sonnet 5', 'Modelo · via API', 38, ['good', '4,0'], '2,1 min', 59, 'R$ 1,20', dl('down', 28, 'good'), st('positive', 'Publicado', '5 set', 1)],
+  ['mistral', 'layers', 'Mistral Large 4', 'Modelo · via API', 26, ['warn', '3,3'], '2,6 min', 49, 'R$ 1,60', dl('down', 3, 'good'), st('idle', 'Rascunho', 'na fila', 3)],
+  ['llama', 'layers', 'Llama 5 Scout', 'Modelo · rodando local', 18, ['bad', '2,4'], '3,6 min', 29, 'R$ 0,90', dl('down', 46, 'good'), st('positive', 'Publicado', '22 ago', 1)],
+  ['regras', 'sliders', 'Roteador por regras', 'Ferramenta · sem IA', 12, ['bad', '1,8'], '4,8 min', 6, { na: true }, { na: true }, st('idle', 'Fora do teste', 'base de comparação', 4)]
+].map(function (r, i) {
+  return { key: r[0], label: r[2], selected: i === 0, alt: { icon: r[1], title: r[2], sub: r[3], highlight: i === 0 },
+    ad: { share: r[4], value: r[4] + '%', highlight: i === 0 }, nota: { lvl: r[5][0], value: r[5][1] }, tempo: r[6], dt: dl('down', r[7], 'good'), custo: r[8], dc: r[9], estado: r[10] };
+});
+var G = { t: 'Teste de 400 tickets', q: 'Qualidade', o: 'Operação', c: 'Custo', e: '' };
+/* #materias do painel: doze matérias, seis por vez. */
+var MAT = [
+  ['diag', 'Claude Fable 5.1 contra GPT-6 em 400 tickets', 'Modelos · Teste · 12 min', '18,4', 100, ['good', 64], '2.310', { value: '96', best: true }, 22, ['positive', 'Publicado', '14 set', 914]],
+  ['diag', 'Agente de triagem: 30 dias em produção', 'Agentes · Teste · 9 min', '14,2', 77, ['warn', 58], '1.740', '71', 35, ['positive', 'Publicado', '9 set', 909]],
+  ['diag', 'Teste cego: cinco modelos, 400 tickets', 'Testes · Teste · 14 min', '12,6', 68, ['good', 77], { value: '2.410', best: true }, '88', null, ['positive', 'Publicado', '2 set', 902]],
+  ['pen', 'O que muda no Gemini 3.8 para quem escreve', 'Modelos · Análise · 7 min', '12,1', 66, ['warn', 49], '1.120', '34', 8, ['positive', 'Publicado', '11 set', 911]],
+  ['diag', 'Os sete editores com IA que testamos', 'Ferramentas · Teste · 11 min', '11,3', 61, ['good', 61], '1.460', '52', -4, ['live', 'Atualizada', '12 set', 912]],
+  ['doc', 'Três ferramentas que todo agente precisa', 'Agentes · Guia · 6 min', '10,4', 57, ['good', 66], '1.290', '47', 12, ['positive', 'Publicado', '5 set', 905]],
+  ['diag', 'Modelos locais já dão conta do suporte?', 'Modelos · Teste · 10 min', '9,8', 53, ['warn', 52], '1.050', '21', -11, ['positive', 'Publicado', '28 ago', 828]],
+  ['diag', 'Transcrição local: comparativo de setembro', 'Ferramentas · Teste · 8 min', '8,2', 45, ['good', 68], '980', '39', null, ['positive', 'Publicado', '7 set', 907]],
+  ['pen', 'Quando o agente erra: o que medir', 'Agentes · Análise · 8 min', '8,1', 44, ['bad', 44], '640', '12', -18, ['positive', 'Publicado', '3 set', 903]],
+  ['doc', 'Preço por token em setembro, modelo a modelo', 'Modelos · Guia · 5 min', '7,6', 41, ['good', 71], '1.310', '18', 41, ['live', 'Atualizada', '10 set', 910]],
+  ['diag', 'Resumo de reunião: quem erra menos', 'Testes · Teste · 9 min', '7,4', 40, ['good', 69], '860', '30', 6, ['positive', 'Publicado', '1 set', 901]],
+  ['diag', 'Sonnet 5 em português: 12 tarefas reais', 'Modelos · Teste · 13 min', '6,9', 38, ['good', 73], '920', '44', null, ['positive', 'Publicado', '13 set', 913]]
+].map(function (r, i) {
+  return { key: i, label: r[1], alt: { icon: r[0], title: r[1], sub: r[2], highlight: i === 0 }, lidas: { share: r[4], value: r[3] + ' mil', highlight: i === 0 },
+    fim: { lvl: r[5][0], value: r[5][1] + '%' }, cliques: r[6], ass: r[7], dv: r[8] == null ? { na: true } : dl(r[8] < 0 ? 'down' : 'up', Math.abs(r[8])),
+    estado: st(r[9][0], r[9][1], r[9][2], r[9][3]) };
+});
+function App() {
+  var d = React.useState('padrao');
+  return h('div', { className: 'stack', style: { gap: '32px' } },
+    h(D.Table, {
+      sortable: true, selectable: true, limit: 5, density: DENS[d[0]], actions: abrir,
+      head: h(D.SecHead, { kicker: 'Teste · 400 tickets reais', title: h(F, null, 'Oito alternativas ', h('em', null, 'lado a lado')),
+        caption: 'Qualidade, operação e custo em grupos. Ícone diz o tipo, faixa colorida diz se a nota passou do limite, contorno laranja marca o melhor da coluna.' }),
+      toolbar: h(D.Toolbar, { search: 'Buscar alternativa', shortcut: '/', end: [h(D.Segmented, { key: 'd', label: 'Densidade', defaultValue: 'padrao', onChange: d[1], options: [{ value: 'compacta', label: 'Compacta' }, { value: 'padrao', label: 'Padrão' }, { value: 'confortavel', label: 'Confortável' }] }), h(D.Button, { key: 'x', iconStart: 'doc' }, 'Exportar')] },
+        h(D.Button, { iconStart: 'sliders' }, 'Filtrar'),
+        h(D.Button, { variant: 'ghost', iconStart: 'grid' }, 'Colunas')),
+      columns: [
+        { key: 'alt', label: 'Alternativa', group: G.t },
+        { key: 'ad', label: 'Aderência', num: true, sort: 'descending', group: G.q },
+        { key: 'nota', label: 'Nota do júri', num: true, group: G.q },
+        { key: 'tempo', label: 'Tempo por ticket', num: true, group: G.o },
+        { key: 'dt', label: 'vs antes', num: true, group: G.o },
+        { key: 'custo', label: 'Custo / 1k', num: true, group: G.c },
+        { key: 'dc', label: 'vs média', num: true, group: G.c },
+        { key: 'estado', label: 'Estado', group: G.e }
+      ],
+      rows: ALT,
+      foot: { alt: 'Média das oito', ad: '29,4%', nota: '3,4', tempo: '2,7 min', dt: h(D.Delta, { direction: 'down', tone: 'good' }, '48%'), custo: 'R$ 1,66' },
+      footnote: 'Clique no cabeçalho para ordenar; valor ausente (–) fica sempre no fim. Tempo contra os 5,1 min de antes, custo contra a média das sete com preço. Nota do júri: 4 ou mais passa, 3 a 3,9 fica perto, abaixo de 3 não passa.'
+    }),
+    h(D.Table, {
+      sortable: true, limit: 6, actions: abrir, style: { '--alt-w': '420px' },
+      head: h(D.SecHead, { kicker: 'Matérias · 1 – 14 set 2026', title: h(F, null, 'As doze mais ', h('em', null, 'lidas')),
+        caption: 'Leitura, conclusão e conversão de cada matéria. Ícone diz o tipo, faixa colorida diz se passou da meta de leitura até o fim, contorno laranja marca o melhor da coluna.' }),
+      toolbar: h(D.Toolbar, { search: 'Buscar matéria', shortcut: '/', note: h(F, null, h('b', null, '12'), ' de 136 matérias'), end: [densidade(null)] },
+        h(D.Button, { iconStart: 'sliders' }, 'Filtrar'),
+        h(D.Button, { variant: 'ghost', iconStart: 'grid' }, 'Colunas')),
+      columns: [
+        { key: 'alt', label: 'Matéria' },
+        { key: 'lidas', label: 'Leituras', num: true, sort: 'descending' },
+        { key: 'fim', label: 'Até o fim', num: true },
+        { key: 'cliques', label: 'Cliques', num: true },
+        { key: 'ass', label: 'Assinaturas', num: true },
+        { key: 'dv', label: 'vs agosto', num: true },
+        { key: 'estado', label: 'Estado' }
+      ],
+      rows: MAT,
+      footnote: 'Clique no cabeçalho para ordenar; matéria nova (–) fica sempre no fim. Até o fim: 60% ou mais na meta, 45 a 59% perto, abaixo de 45% fora. Comparação com as mesmas matérias em agosto.'
+    }),
+    h(D.Table, {
+      ink: true, sortable: true,
+      head: h(D.SecHead, { kicker: 'Tinta · custo por mil tickets', title: h(F, null, 'Quem cabe no ', h('em', null, 'orçamento')) }),
+      columns: [
+        { key: 'alt', label: 'Alternativa' },
+        { key: 'nota', label: 'Nota do júri', num: true },
+        { key: 'tempo', label: 'Tempo por ticket', num: true, sort: 'ascending' },
+        { key: 'custo', label: 'Custo / 1k', num: true },
+        { key: 'dc', label: 'vs média', num: true }
+      ],
+      rows: [ALT[0], ALT[2], ALT[4], ALT[7]].map(function (r, i) { return Object.assign({}, r, { selected: false, alt: Object.assign({}, r.alt, { highlight: i === 1 }) }); })
+    }));
+}
+render(h(App));
+
+=== Workspace | Produto | height=830 | width=1240
+var MINIS = [
+  { cat: 'modelos', image: IMG.astra320, kicker: 'Modelos', title: 'GPT-6 Astra: da abertura à segurança', meta: '14 set · 6 min', tone: 'positive', status: 'Publicado' },
+  { cat: 'modelos', image: IMG.fable320, kicker: 'Modelos', title: 'Claude Fable 5.1 e o cache que lembra', meta: '12 set · 5 min', tone: 'live', status: 'Em revisão' },
+  { cat: 'ferramentas', image: IMG.busto320, kicker: 'Ferramentas', title: 'Muse Spark 1.3 em código', meta: '10 set · 4 min', tone: 'positive', status: 'Publicado' },
+  { cat: 'agentes', image: IMG.mcp320, kicker: 'Agentes', title: 'Caminhos do MCP em 2026', meta: '08 set · 7 min', tone: 'draft', status: 'Rascunho' },
+  { cat: 'modelos', image: IMG.gemini320, kicker: 'Modelos', title: 'Gemini 3.8 Flash muda a conta', meta: '05 set · 5 min', tone: 'positive', status: 'Publicado' },
+  { cat: 'agentes', image: IMG.arcos320, kicker: 'Agentes', title: 'ClaudeForce: dois arcos, uma porta', meta: '02 set · 6 min', tone: null, status: 'Agendado' }
+];
+var TEXT = 'O protocolo saiu do laboratório. Em 2026, três servidores MCP respondem por 70% das integrações que testei, e o gargalo mudou de lugar: não é mais conectar, é decidir o que a conexão pode fazer.\n\nFechei a amostra em 12 servidores públicos e 40 fluxos. O que funcionou, o que quebrou e o que ainda depende de leitura humana.';
+function App() {
+  var s = React.useState('acervo'), view = s[0], setView = s[1];
+  var c = React.useState('all'), cat = c[0], setCat = c[1];
+  var m = React.useState('grid'), mode = m[0], setMode = m[1];
+  function pickMenu(v) { if (v === 'editor') setView('editor'); else { setView('acervo'); setCat(v); } }
+  var list = MINIS.filter(function (x) { return cat === 'all' || (cat === 'agendados' ? x.status === 'Agendado' : x.cat === cat); });
+  return h(D.Workspace, null,
+    h(D.Rail, { key: 'rail-' + view, defaultValue: view, initial: 'K', user: 'Kelvi Maycon', onChange: function (v) { setView(v === 'editor' ? 'editor' : 'acervo'); },
+      items: [{ value: 'acervo', icon: 'grid', label: 'Acervo' }, { value: 'editor', icon: 'pen', label: 'Rascunhos' }, { value: 'metricas', icon: 'ruler', label: 'Métricas' }, { value: 'news', icon: 'mail', label: 'Newsletter' }, { value: 'ajustes', icon: 'settings', label: 'Ajustes' }] }),
+    h(D.Menu, { key: 'menu-' + view, variant: 'ink', title: 'Acervo', searchLabel: 'Buscar no acervo', defaultValue: view === 'editor' ? 'editor' : cat, onChange: pickMenu,
+      sections: [
+        { label: 'Categorias', items: [{ value: 'all', icon: 'grid', label: 'Todas', count: 24 }, { value: 'modelos', icon: 'doc', label: 'Modelos', count: 9 }, { value: 'ferramentas', icon: 'sliders', label: 'Ferramentas', count: 6 }, { value: 'agentes', icon: 'layers', label: 'Agentes', count: 5 }] },
+        { label: 'Trabalho', items: [{ value: 'editor', icon: 'pen', label: 'Rascunhos', count: 2 }, { value: 'agendados', icon: 'clock', label: 'Agendados', count: 1 }] },
+        { label: 'Canais', items: [{ value: 'news', icon: 'mail', label: 'Newsletter', status: 'positive', statusLabel: 'Sincronizado' }, { value: 'site', icon: 'doc', label: 'Site', status: 'positive', statusLabel: 'Sincronizado' }, { value: 'insta', icon: 'image', label: 'Instagram', status: 'warn', statusLabel: 'Atrasado' }] }
+      ] }),
+    view === 'editor'
+      ? h(D.ContentPanel, { crumbs: ['AiCreatorOS', 'Rascunhos'], plain: true,
+          tools: h(React.Fragment, null, h(D.Segmented, { label: 'Modo de exibição', options: [{ value: 'grid', label: 'Grade', icon: 'grid' }, { value: 'list', label: 'Lista', icon: 'list' }] }), h(D.Button, { variant: 'ink', iconStart: 'plus' }, 'Nova matéria')) },
+          h(D.Editor, { kicker: 'Rascunho · Agentes', defaultTitle: 'Caminhos do MCP em 2026', defaultText: TEXT,
+            tools: [h(D.Button, { key: 'b', variant: 'line', iconStart: 'image' }, 'Imagem de capa'), h('span', { key: 'h', className: 'help' }, 'Rascunho salvo às 09:42')],
+            side: h(React.Fragment, null,
+              h(D.Label, { label: 'Publicação', meta: h(D.Badge, { tone: 'draft' }, 'Rascunho'), style: { margin: 0 } }),
+              h(D.Select, { label: 'Categoria', options: ['Agentes', 'Modelos', 'Ferramentas'] }),
+              h(D.Input, { label: 'Publicar em', icon: 'clock', defaultValue: '16 set 2026 · 08:00' }),
+              h('div', { className: 'stack', style: { gap: '12px' } },
+                h(D.Checkbox, { label: 'Fonte ao lado', defaultChecked: true }),
+                h(D.Checkbox, { label: 'Ressalva escrita', defaultChecked: true }),
+                h(D.Checkbox, { label: 'Imagem declarada' })),
+              h(D.Log, { entries: [{ time: '09:42', title: 'Rascunho salvo', text: '312 palavras' }, { time: '09:31', text: 'Categoria alterada para Agentes' }, { time: '09:12', text: 'Criado a partir da pauta 14' }] }),
+              h('div', { className: 'ed-actions' }, h(D.Button, { variant: 'line' }, 'Pré-visualizar'), h(D.Button, { variant: 'primary', icon: 'arrow' }, 'Revisar'))) }))
+      : h(D.ContentPanel, { crumbs: ['AiCreatorOS', 'Acervo'],
+          tools: h(React.Fragment, null,
+            h(D.Segmented, { label: 'Modo de exibição', defaultValue: mode, onChange: setMode, options: [{ value: 'grid', label: 'Grade', icon: 'grid' }, { value: 'list', label: 'Lista', icon: 'list' }] }),
+            h(D.Button, { variant: 'ink', iconStart: 'plus', onClick: function () { setView('editor'); } }, 'Nova matéria')) },
+          h(D.MiniGrid, { list: mode === 'list' }, list.map(function (x) {
+            return h(D.Mini, { key: x.title, image: x.image, kicker: x.kicker, title: x.title, meta: x.meta, status: h(D.Badge, { tone: x.tone }, x.status) });
+          })),
+          h('div', { className: 'foot', style: { borderTop: '1px dashed var(--line)' } },
+            h('span', { className: 'mono' }, '1–6 de 24 matérias'),
+            h('div', { className: 'chips' },
+              h(D.IconButton, { size: 'sm', icon: 'back', disabled: true, label: 'Página anterior' }),
+              h('span', { className: 'mono' }, '01 / 04'),
+              h(D.IconButton, { size: 'sm', variant: 'primary', label: 'Próxima página' })))));
+}
+render(h(App));
+
+=== Rail | Produto | height=440 | width=900
+var items = [{ value: 'acervo', icon: 'grid', label: 'Acervo' }, { value: 'editor', icon: 'pen', label: 'Rascunhos' }, { value: 'metricas', icon: 'ruler', label: 'Métricas' }, { value: 'news', icon: 'mail', label: 'Newsletter' }, { value: 'ajustes', icon: 'settings', label: 'Ajustes' }];
+render(h(D.Rail, { items: items, initial: 'K', user: 'Kelvi Maycon', style: { height: '360px' } }));
+
+=== Menu | Produto | height=650 | width=900
+var sections = [
+  { label: 'Categorias', items: [{ value: 'all', icon: 'grid', label: 'Todas', count: 24 }, { value: 'modelos', icon: 'doc', label: 'Modelos', count: 9 }, { value: 'ferramentas', icon: 'sliders', label: 'Ferramentas', count: 6 }, { value: 'agentes', icon: 'layers', label: 'Agentes', count: 5 }] },
+  { label: 'Trabalho', items: [{ value: 'editor', icon: 'pen', label: 'Rascunhos', count: 2 }, { value: 'agendados', icon: 'clock', label: 'Agendados', count: 1 }] },
+  { label: 'Canais', items: [{ value: 'news', icon: 'mail', label: 'Newsletter', status: 'positive', statusLabel: 'Sincronizado' }, { value: 'site', icon: 'doc', label: 'Site', status: 'positive', statusLabel: 'Sincronizado' }, { value: 'insta', icon: 'image', label: 'Instagram', status: 'warn', statusLabel: 'Atrasado' }] }
+];
+function col(title, menu) {
+  return h('div', { style: { display: 'grid', gap: '12px', alignContent: 'start' } }, h('span', { className: 'mono muted' }, title), menu);
+}
+render(h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(2, 232px)', gap: '32px', padding: '12px', background: 'var(--soft)', borderRadius: '24px' } },
+  col('Papel', h(D.Menu, { title: 'Acervo', searchLabel: 'Buscar no acervo', sections: sections })),
+  col('Tinta', h(D.Menu, { variant: 'ink', title: 'Acervo', searchLabel: 'Buscar no acervo', sections: sections }))));
+
+=== ContentPanel | Produto | height=500 | width=1200
+render(h(D.ContentPanel, {
+  crumbs: ['AiCreatorOS', 'Acervo'],
+  tools: h(React.Fragment, null,
+    h(D.Segmented, { label: 'Modo de exibição', options: [{ value: 'grid', label: 'Grade', icon: 'grid' }, { value: 'list', label: 'Lista', icon: 'list' }] }),
+    h(D.Button, { variant: 'ink', iconStart: 'plus' }, 'Nova matéria'))
+},
+  h(D.MiniGrid, null,
+    h(D.Mini, { image: IMG.astra320, kicker: 'Modelos', title: 'GPT-6 Astra: da abertura à segurança', meta: '14 set · 6 min', status: h(D.Badge, { tone: 'positive' }, 'Publicado') }),
+    h(D.Mini, { image: IMG.fable320, kicker: 'Modelos', title: 'Claude Fable 5.1 e o cache que lembra', meta: '12 set · 5 min', status: h(D.Badge, { tone: 'live' }, 'Em revisão') }),
+    h(D.Mini, { image: IMG.busto320, kicker: 'Ferramentas', title: 'Muse Spark 1.3 em código', meta: '10 set · 4 min', status: h(D.Badge, { tone: 'positive' }, 'Publicado') }))));
+
+=== MiniGrid | Produto | height=450 | width=1200
+var MINIS = [
+  { image: IMG.mcp320, kicker: 'Agentes', title: 'Caminhos do MCP em 2026', meta: '08 set · 7 min', tone: 'draft', status: 'Rascunho' },
+  { image: IMG.gemini320, kicker: 'Modelos', title: 'Gemini 3.8 Flash muda a conta', meta: '05 set · 5 min', tone: 'positive', status: 'Publicado' },
+  { image: IMG.arcos320, kicker: 'Agentes', title: 'ClaudeForce: dois arcos, uma porta', meta: '02 set · 6 min', tone: null, status: 'Agendado' }
+];
+function App() {
+  var m = React.useState('grid'), mode = m[0];
+  return h('div', { className: 'stack' },
+    h(D.Segmented, { label: 'Modo de exibição', defaultValue: 'grid', onChange: m[1], style: { justifySelf: 'start' },
+      options: [{ value: 'grid', label: 'Grade', icon: 'grid' }, { value: 'list', label: 'Lista', icon: 'list' }] }),
+    h(D.MiniGrid, { list: mode === 'list' }, MINIS.map(function (x) {
+      return h(D.Mini, { key: x.title, image: x.image, kicker: x.kicker, title: x.title, meta: x.meta, status: h(D.Badge, { tone: x.tone }, x.status) });
+    })));
+}
+render(h(App));
+
+=== Mini | Produto | height=340
+render(h('div', { style: { maxWidth: '300px' } },
+  h(D.Mini, { image: IMG.astra320, kicker: 'Modelos', title: 'GPT-6 Astra: da abertura à segurança', meta: '14 set · 6 min', status: h(D.Badge, { tone: 'positive' }, 'Publicado') })));
+
+=== Editor | Produto | height=670 | width=1200
+var TEXT = 'O protocolo saiu do laboratório. Em 2026, três servidores MCP respondem por 70% das integrações que testei, e o gargalo mudou de lugar: não é mais conectar, é decidir o que a conexão pode fazer.\n\nFechei a amostra em 12 servidores públicos e 40 fluxos. O que funcionou, o que quebrou e o que ainda depende de leitura humana.';
+render(h(D.ContentPanel, { crumbs: ['AiCreatorOS', 'Rascunhos'], plain: true,
+  tools: h(React.Fragment, null, h(D.Segmented, { label: 'Modo de exibição', options: [{ value: 'grid', label: 'Grade', icon: 'grid' }, { value: 'list', label: 'Lista', icon: 'list' }] }), h(D.Button, { variant: 'ink', iconStart: 'plus' }, 'Nova matéria')) },
+  h(D.Editor, { kicker: 'Rascunho · Agentes', defaultTitle: 'Caminhos do MCP em 2026', defaultText: TEXT,
+    tools: [h(D.Button, { key: 'b', variant: 'line', iconStart: 'image' }, 'Imagem de capa'), h('span', { key: 'h', className: 'help' }, 'Rascunho salvo às 09:42')],
+    side: h(React.Fragment, null,
+      h(D.Label, { label: 'Publicação', meta: h(D.Badge, { tone: 'draft' }, 'Rascunho'), style: { margin: 0 } }),
+      h(D.Select, { label: 'Categoria', options: ['Agentes', 'Modelos', 'Ferramentas'] }),
+      h(D.Input, { label: 'Publicar em', icon: 'clock', defaultValue: '16 set 2026 · 08:00' }),
+      h('div', { className: 'stack', style: { gap: '12px' } },
+        h(D.Checkbox, { label: 'Fonte ao lado', defaultChecked: true }),
+        h(D.Checkbox, { label: 'Ressalva escrita', defaultChecked: true }),
+        h(D.Checkbox, { label: 'Imagem declarada' })),
+      h(D.Log, { entries: [{ time: '09:42', title: 'Rascunho salvo', text: '312 palavras' }, { time: '09:31', text: 'Categoria alterada para Agentes' }, { time: '09:12', text: 'Criado a partir da pauta 14' }] }),
+      h('div', { className: 'ed-actions' }, h(D.Button, { variant: 'line' }, 'Pré-visualizar'), h(D.Button, { variant: 'primary', icon: 'arrow' }, 'Revisar'))) })));
+
+=== Log | Produto | height=220
+render(h('div', { className: 'card pad', style: { maxWidth: '320px' } },
+  h(D.Log, { entries: [
+    { time: '09:42', title: 'Rascunho salvo', text: '312 palavras' },
+    { time: '09:31', text: 'Categoria alterada para Agentes' },
+    { time: '09:12', text: 'Criado a partir da pauta 14' }
+  ] })));

@@ -1,0 +1,16 @@
+<!-- @dsCard group="Feedback" height=260 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Meter: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+render(h('div', { className: 'card pad stack', style: { maxWidth: '560px' } },
+  h(D.Meter, { label: 'Enviando · 8.320 de 12.400', value: 67, caption: 'Progresso determinado · barra 8 px' }),
+  h(D.Meter, { value: 48.2, goal: 50, scale: true, 'aria-label': 'Taxa de abertura 48,2%, meta 50%' }),
+  h(D.Meter, { value: 48.2, goal: 50, small: true, 'aria-label': 'Abertura 48,2%' })));
+</script>
+</body>
+</html>

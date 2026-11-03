@@ -1,0 +1,25 @@
+<!-- @dsCard group="Dados" height=530 width=640 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Funnel: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+var STEPS = [
+  { label: 'Visitas', sub: 'Home e matérias', value: 18420 },
+  { label: 'Leitura completa', sub: 'Rolagem acima de 90%', value: 6134, rateLabel: 'leem até o fim' },
+  { label: 'Assinaturas', sub: 'Formulário no fim da matéria', value: 412, rateLabel: 'assinam' },
+  { label: 'Primeira edição aberta', sub: 'Edição 07', value: 239, rateLabel: 'abrem a primeira edição' }
+];
+function App() {
+  var s = React.useState('count');
+  return h(D.Panel, { kicker: 'Conversão · 1 – 14 set 2026', title: h(React.Fragment, null, 'Funil do ', h('em', null, 'período')), caption: 'Da visita no site à primeira edição aberta',
+    tools: h(D.Segmented, { label: 'Mostrar no funil', defaultValue: 'count', onChange: s[1], options: [{ value: 'count', label: 'Quantidade' }, { value: 'rate', label: 'Taxa' }] }) },
+    h(D.Funnel, { steps: STEPS, show: s[0] }));
+}
+render(h(App));
+</script>
+</body>
+</html>

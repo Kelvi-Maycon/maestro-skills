@@ -1,0 +1,34 @@
+:root{
+--ink:#1D1D1B;--ink-2:#2C2C29;--ink-line:#45433E;
+--paper:#F4F1E9;--page:#F7F4EE;--card:#FFFDFA;--soft:#E8E4DB;
+--line:#CBC6BB;--ctl:#807B70;--muted:#5A5952;--inv-muted:#CBC6BB;
+--orange:#F05A37;--lime:#D8F35A;--lime-line:#B4D22D;--mark-mid:#8D8B86;--on-orange:#FFFFFF;
+--text-1:var(--ink);--text-2:var(--muted);--text-inv:var(--paper);--text-inv-2:var(--inv-muted);
+--surface-page:var(--page);--surface-card:var(--card);--surface-sunken:var(--soft);--surface-ink:var(--ink);
+--border-card:var(--line);--border-control:var(--ctl);--border-dash:var(--line);--border-ink:var(--ink-line);
+--accent:var(--orange);--accent-on:var(--on-orange);--state-positive:var(--lime);--focus-ring:var(--orange);
+--attention:var(--orange); /* alias antigo do laranja, mantido por compatibilidade */
+--line-2:#E3DED3; /* divisória fina: linha de tabela, grade de stats */
+--pos:#2F7A36;--pos-bg:#EAF3D2;--warn:#946200;--warn-bg:#F7ECCF;--neg:#C42B3E;--neg-bg:#F8E2E4;--info:#2F58C9;--info-bg:#E4EAF8; /* estado de sistema: ponto, badge, delta. Nunca decoração */
+--veil-ink:rgba(29,29,27,.96);--veil-ink-mid:rgba(29,29,27,.84);--veil-ink-soft:rgba(29,29,27,.06);
+/* Superfícies em camadas (rev. 31/10/2026, linguagem do Vault v2). Contraste medido (WCAG): painel/página 1,26 · cabeçalho/corpo 1,17 ·
+   divisória/painel 1,57 no claro; 1,19 · 1,16 · 1,62 no escuro. 0 página · 1 painel · 2 cabeçalho de painel e de tabela, inset, rodapé · 3 hover e ativo.
+   Os nomes antigos (--page, --card, --paper, --soft, --line-2) apontam para estas camadas no bloco de apelidos logo abaixo. */
+--surface-0:#E9E3D6;--surface-1:#FFFDFA;--surface-2:#F0EBE1;--surface-3:#E6E0D4;--line-strong:#BBB2A1;
+--amber-soft:#FBF1D9;--amber-line:#D9A94A; /* aviso de atenção: fundo âmbar suave, borda com contraste ≥ 1,5 */
+--serie-1:#2A78D6;--serie-2:#1BAF7A;--serie-3:#6250D6;--serie-4:#E87BA4;--serie-5:#C98500;--serie-6:#008300 /* paleta categórica de gráfico, fixa por série; sem o laranja, que fica para destaque e alerta */}
+/* Apelidos: peças antigas continuam lendo os nomes de antes, agora nas camadas */
+:root{--page:var(--surface-0);--card:var(--surface-1);--paper:var(--surface-2);--soft:var(--surface-3);--line:#D3CCBE;--line-2:var(--line);
+--surface-page:var(--surface-0);--surface-card:var(--surface-1);--surface-sunken:var(--surface-2)}
+/* Tema escuro: data-theme="dark" no <html> (botão .tema em kit.js; o script do <head> aplica a escolha gravada antes do primeiro paint).
+   Tinta vira o texto claro e papel vira superfície escura; o painel de tinta (.ink, cabeçalho de tabela, trilho, toast) fica mais fundo
+   que a página, com borda ink-line (regras no fim de kit.css). Laranja é o mesmo. Estado usa os tons de tinta: lima no positivo, porque o fundo é escuro */
+:root[data-theme=dark]{color-scheme:dark;
+--ink:#F1EDE4;--paper:#252422;--page:#161614;--card:#1E1D1B;--soft:#2D2C29;
+--line:#46433F;--line-2:#302F2C;--ctl:#8A857B;--muted:#ABA69B;--m3:var(--ink);
+--text-inv:#F1EDE4;--surface-ink:#0E0E0D; /* texto sobre tinta continua claro; tinta de painel fica mais funda que a página */
+--pos:#D8F35A;--pos-bg:rgba(216,243,90,.12);--warn:#F2B53A;--warn-bg:rgba(242,181,58,.14);--neg:#FF7A6B;--neg-bg:rgba(255,122,107,.14);--info:#A3B5EE;--info-bg:rgba(163,181,238,.14);
+--surface-0:#0E0E0D;--surface-1:#21201E;--surface-2:#2D2C29;--surface-3:#383733;--line:#44423D;--line-strong:#5A564F;
+--page:var(--surface-0);--card:var(--surface-1);--paper:var(--surface-2);--soft:var(--surface-3);--line-2:var(--line);
+--amber-soft:rgba(242,181,58,.10);--amber-line:rgba(242,181,58,.35);
+--serie-1:#3987E5;--serie-2:#199E70;--serie-3:#9085E9;--serie-4:#D55181;--serie-5:#C98500;--serie-6:#0CA30C}

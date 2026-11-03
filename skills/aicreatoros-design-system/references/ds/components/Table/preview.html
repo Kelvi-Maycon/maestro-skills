@@ -1,0 +1,111 @@
+<!-- @dsCard group="Dados" height=1830 width=1440 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Table: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+var F = React.Fragment;
+function dl(dir, v, tone) { return { value: h(D.Delta, { direction: dir, tone: tone }, v + '%'), sort: dir === 'down' ? -v : v }; }
+function st(tone, label, sub, sort) { return { value: h(D.Status, { tone: tone }, label), sub: sub, sort: sort }; }
+function abrir(r) { return h(D.Button, { variant: 'ghost', size: 'sm', iconOnly: true, icon: 'arrow', label: 'Abrir ' + r.label }); }
+var DENS = { compacta: 'compacta', padrao: undefined, confortavel: 'confortavel' };
+function densidade(set) {
+  return h(D.Segmented, { label: 'Densidade', defaultValue: 'padrao', onChange: set, options: [{ value: 'compacta', label: 'Compacta' }, { value: 'padrao', label: 'Padrão' }, { value: 'confortavel', label: 'Confortável' }] });
+}
+/* 09.4: oito alternativas em grupos, com seleção, faixa de nota e valor ausente. */
+var ALT = [
+  ['fable', 'layers', 'Claude Fable 5.1', 'Modelo · via API', 47, ['good', '4,6'], '1,9 min', 63, 'R$ 2,10', dl('up', 27, 'bad'), st('live', 'Em revisão', 'desde 12 set', 2)],
+  ['astra', 'layers', 'GPT-6 Astra', 'Modelo · via API', 31, ['warn', '3,8'], '2,4 min', 53, 'R$ 1,80', dl('up', 9, 'bad'), st('positive', 'Publicado', '31 ago', 1)],
+  ['gemini', 'layers', 'Gemini 3.8 Flash', 'Modelo · via API', 22, ['warn', '3,1'], { value: '1,2 min', best: true }, 76, { value: 'R$ 0,60', best: true }, dl('down', 64, 'good'), st('idle', 'Rascunho', 'na fila', 3)],
+  ['triagem', 'settings', 'Agente de triagem', 'Agente · 3 ferramentas', 41, ['good', '4,2'], '2,8 min', 45, 'R$ 3,40', dl('up', 105, 'bad'), st('live', 'Em revisão', 'desde 10 set', 2)],
+  ['sonnet', 'layers', 'Claude Sonnet 5', 'Modelo · via API', 38, ['good', '4,0'], '2,1 min', 59, 'R$ 1,20', dl('down', 28, 'good'), st('positive', 'Publicado', '5 set', 1)],
+  ['mistral', 'layers', 'Mistral Large 4', 'Modelo · via API', 26, ['warn', '3,3'], '2,6 min', 49, 'R$ 1,60', dl('down', 3, 'good'), st('idle', 'Rascunho', 'na fila', 3)],
+  ['llama', 'layers', 'Llama 5 Scout', 'Modelo · rodando local', 18, ['bad', '2,4'], '3,6 min', 29, 'R$ 0,90', dl('down', 46, 'good'), st('positive', 'Publicado', '22 ago', 1)],
+  ['regras', 'sliders', 'Roteador por regras', 'Ferramenta · sem IA', 12, ['bad', '1,8'], '4,8 min', 6, { na: true }, { na: true }, st('idle', 'Fora do teste', 'base de comparação', 4)]
+].map(function (r, i) {
+  return { key: r[0], label: r[2], selected: i === 0, alt: { icon: r[1], title: r[2], sub: r[3], highlight: i === 0 },
+    ad: { share: r[4], value: r[4] + '%', highlight: i === 0 }, nota: { lvl: r[5][0], value: r[5][1] }, tempo: r[6], dt: dl('down', r[7], 'good'), custo: r[8], dc: r[9], estado: r[10] };
+});
+var G = { t: 'Teste de 400 tickets', q: 'Qualidade', o: 'Operação', c: 'Custo', e: '' };
+/* #materias do painel: doze matérias, seis por vez. */
+var MAT = [
+  ['diag', 'Claude Fable 5.1 contra GPT-6 em 400 tickets', 'Modelos · Teste · 12 min', '18,4', 100, ['good', 64], '2.310', { value: '96', best: true }, 22, ['positive', 'Publicado', '14 set', 914]],
+  ['diag', 'Agente de triagem: 30 dias em produção', 'Agentes · Teste · 9 min', '14,2', 77, ['warn', 58], '1.740', '71', 35, ['positive', 'Publicado', '9 set', 909]],
+  ['diag', 'Teste cego: cinco modelos, 400 tickets', 'Testes · Teste · 14 min', '12,6', 68, ['good', 77], { value: '2.410', best: true }, '88', null, ['positive', 'Publicado', '2 set', 902]],
+  ['pen', 'O que muda no Gemini 3.8 para quem escreve', 'Modelos · Análise · 7 min', '12,1', 66, ['warn', 49], '1.120', '34', 8, ['positive', 'Publicado', '11 set', 911]],
+  ['diag', 'Os sete editores com IA que testamos', 'Ferramentas · Teste · 11 min', '11,3', 61, ['good', 61], '1.460', '52', -4, ['live', 'Atualizada', '12 set', 912]],
+  ['doc', 'Três ferramentas que todo agente precisa', 'Agentes · Guia · 6 min', '10,4', 57, ['good', 66], '1.290', '47', 12, ['positive', 'Publicado', '5 set', 905]],
+  ['diag', 'Modelos locais já dão conta do suporte?', 'Modelos · Teste · 10 min', '9,8', 53, ['warn', 52], '1.050', '21', -11, ['positive', 'Publicado', '28 ago', 828]],
+  ['diag', 'Transcrição local: comparativo de setembro', 'Ferramentas · Teste · 8 min', '8,2', 45, ['good', 68], '980', '39', null, ['positive', 'Publicado', '7 set', 907]],
+  ['pen', 'Quando o agente erra: o que medir', 'Agentes · Análise · 8 min', '8,1', 44, ['bad', 44], '640', '12', -18, ['positive', 'Publicado', '3 set', 903]],
+  ['doc', 'Preço por token em setembro, modelo a modelo', 'Modelos · Guia · 5 min', '7,6', 41, ['good', 71], '1.310', '18', 41, ['live', 'Atualizada', '10 set', 910]],
+  ['diag', 'Resumo de reunião: quem erra menos', 'Testes · Teste · 9 min', '7,4', 40, ['good', 69], '860', '30', 6, ['positive', 'Publicado', '1 set', 901]],
+  ['diag', 'Sonnet 5 em português: 12 tarefas reais', 'Modelos · Teste · 13 min', '6,9', 38, ['good', 73], '920', '44', null, ['positive', 'Publicado', '13 set', 913]]
+].map(function (r, i) {
+  return { key: i, label: r[1], alt: { icon: r[0], title: r[1], sub: r[2], highlight: i === 0 }, lidas: { share: r[4], value: r[3] + ' mil', highlight: i === 0 },
+    fim: { lvl: r[5][0], value: r[5][1] + '%' }, cliques: r[6], ass: r[7], dv: r[8] == null ? { na: true } : dl(r[8] < 0 ? 'down' : 'up', Math.abs(r[8])),
+    estado: st(r[9][0], r[9][1], r[9][2], r[9][3]) };
+});
+function App() {
+  var d = React.useState('padrao');
+  return h('div', { className: 'stack', style: { gap: '32px' } },
+    h(D.Table, {
+      sortable: true, selectable: true, limit: 5, density: DENS[d[0]], actions: abrir,
+      head: h(D.SecHead, { kicker: 'Teste · 400 tickets reais', title: h(F, null, 'Oito alternativas ', h('em', null, 'lado a lado')),
+        caption: 'Qualidade, operação e custo em grupos. Ícone diz o tipo, faixa colorida diz se a nota passou do limite, contorno laranja marca o melhor da coluna.' }),
+      toolbar: h(D.Toolbar, { search: 'Buscar alternativa', shortcut: '/', end: [h(D.Segmented, { key: 'd', label: 'Densidade', defaultValue: 'padrao', onChange: d[1], options: [{ value: 'compacta', label: 'Compacta' }, { value: 'padrao', label: 'Padrão' }, { value: 'confortavel', label: 'Confortável' }] }), h(D.Button, { key: 'x', iconStart: 'doc' }, 'Exportar')] },
+        h(D.Button, { iconStart: 'sliders' }, 'Filtrar'),
+        h(D.Button, { variant: 'ghost', iconStart: 'grid' }, 'Colunas')),
+      columns: [
+        { key: 'alt', label: 'Alternativa', group: G.t },
+        { key: 'ad', label: 'Aderência', num: true, sort: 'descending', group: G.q },
+        { key: 'nota', label: 'Nota do júri', num: true, group: G.q },
+        { key: 'tempo', label: 'Tempo por ticket', num: true, group: G.o },
+        { key: 'dt', label: 'vs antes', num: true, group: G.o },
+        { key: 'custo', label: 'Custo / 1k', num: true, group: G.c },
+        { key: 'dc', label: 'vs média', num: true, group: G.c },
+        { key: 'estado', label: 'Estado', group: G.e }
+      ],
+      rows: ALT,
+      foot: { alt: 'Média das oito', ad: '29,4%', nota: '3,4', tempo: '2,7 min', dt: h(D.Delta, { direction: 'down', tone: 'good' }, '48%'), custo: 'R$ 1,66' },
+      footnote: 'Clique no cabeçalho para ordenar; valor ausente (–) fica sempre no fim. Tempo contra os 5,1 min de antes, custo contra a média das sete com preço. Nota do júri: 4 ou mais passa, 3 a 3,9 fica perto, abaixo de 3 não passa.'
+    }),
+    h(D.Table, {
+      sortable: true, limit: 6, actions: abrir, style: { '--alt-w': '420px' },
+      head: h(D.SecHead, { kicker: 'Matérias · 1 – 14 set 2026', title: h(F, null, 'As doze mais ', h('em', null, 'lidas')),
+        caption: 'Leitura, conclusão e conversão de cada matéria. Ícone diz o tipo, faixa colorida diz se passou da meta de leitura até o fim, contorno laranja marca o melhor da coluna.' }),
+      toolbar: h(D.Toolbar, { search: 'Buscar matéria', shortcut: '/', note: h(F, null, h('b', null, '12'), ' de 136 matérias'), end: [densidade(null)] },
+        h(D.Button, { iconStart: 'sliders' }, 'Filtrar'),
+        h(D.Button, { variant: 'ghost', iconStart: 'grid' }, 'Colunas')),
+      columns: [
+        { key: 'alt', label: 'Matéria' },
+        { key: 'lidas', label: 'Leituras', num: true, sort: 'descending' },
+        { key: 'fim', label: 'Até o fim', num: true },
+        { key: 'cliques', label: 'Cliques', num: true },
+        { key: 'ass', label: 'Assinaturas', num: true },
+        { key: 'dv', label: 'vs agosto', num: true },
+        { key: 'estado', label: 'Estado' }
+      ],
+      rows: MAT,
+      footnote: 'Clique no cabeçalho para ordenar; matéria nova (–) fica sempre no fim. Até o fim: 60% ou mais na meta, 45 a 59% perto, abaixo de 45% fora. Comparação com as mesmas matérias em agosto.'
+    }),
+    h(D.Table, {
+      ink: true, sortable: true,
+      head: h(D.SecHead, { kicker: 'Tinta · custo por mil tickets', title: h(F, null, 'Quem cabe no ', h('em', null, 'orçamento')) }),
+      columns: [
+        { key: 'alt', label: 'Alternativa' },
+        { key: 'nota', label: 'Nota do júri', num: true },
+        { key: 'tempo', label: 'Tempo por ticket', num: true, sort: 'ascending' },
+        { key: 'custo', label: 'Custo / 1k', num: true },
+        { key: 'dc', label: 'vs média', num: true }
+      ],
+      rows: [ALT[0], ALT[2], ALT[4], ALT[7]].map(function (r, i) { return Object.assign({}, r, { selected: false, alt: Object.assign({}, r.alt, { highlight: i === 1 }) }); })
+    }));
+}
+render(h(App));
+</script>
+</body>
+</html>

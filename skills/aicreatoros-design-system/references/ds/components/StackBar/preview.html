@@ -1,0 +1,15 @@
+<!-- @dsCard group="Dados" height=140 width=640 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>StackBar: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+render(h('div', { className: 'card pad stack', style: { gap: '12px' } },
+  h('span', { className: 'mono muted' }, 'Origem das assinaturas · 412'),
+  h(D.StackBar, { label: 'Matéria 52%, home 29%, social 19%', items: [{ value: 52, tone: 'hi' }, { value: 29, tone: 'on' }, { value: 19 }] })));
+</script>
+</body>
+</html>

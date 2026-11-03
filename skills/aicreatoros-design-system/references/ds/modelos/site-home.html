@@ -1,0 +1,65 @@
+<!doctype html>
+<!--
+Modelo: home do site. Topo, capa da semana, lista de matérias, bloco de inscrição e rodapé.
+Capítulos do kit: #site (.site-top .site-hero .site-body .site-list .site-foot) e #newsletter (formulário de inscrição).
+Trocar: título e resumo da capa, imagem da capa (../assets/img/*.webp), itens da lista, textos do rodapé.
+Movimento: data-split no título da capa, data-scrub="parallax" e data-spot na capa, data-stagger na lista (capítulo 15 do kit).
+Não mexer: o único botão laranja é o Assinar do formulário (o do topo é escuro e leva até ele); data e tempo de leitura em mono.
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AiCreatorOS · Edição 07</title>
+<script>try{if(localStorage.getItem('aios-tema')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../kit-v9/kit.css">
+<style>
+:root{--edge:40px}
+.site-top,.site-foot{padding-inline:var(--edge)}
+.site-hero{padding-inline:var(--edge);padding-block:48px;min-height:480px}
+.site-body{padding:40px var(--edge) 56px}
+.home-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:48px;align-items:start}
+.home-grid>div{display:grid;gap:20px;min-width:0}
+.home-grid>div:first-child{padding-top:25px} /* rótulo na altura do rótulo do card: padding 24 + borda 1 */
+.home-grid>form{position:sticky;top:24px} /* inscrição acompanha a lista enquanto rola */
+@media(max-width:860px){:root{--edge:20px}.site-hero{min-height:360px;padding-block:32px}.site-body{padding-block:32px 40px}.home-grid{grid-template-columns:minmax(0,1fr);gap:32px}.home-grid>div:first-child{padding-top:0}.home-grid>form{position:static}}
+@media(max-width:560px){:root{--edge:16px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="mark" viewBox="0 0 40 16"><circle cx="3" cy="8" r="3" fill="var(--m1,#F05A37)"></circle><circle cx="15" cy="8" r="5" fill="var(--m2,#8D8B86)"></circle><circle cx="32" cy="8" r="8" fill="var(--m3,#1D1D1B)"></circle></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></symbol>
+</svg>
+
+<header class="site-top"><a class="brand" href="site-home.html" aria-label="AiCreatorOS, início"><svg class="mark" aria-hidden="true"><use href="#mark"></use></svg><span class="wordmark" style="font-size:21px">aicreator<em>os</em></span></a><nav aria-label="Seções do site"><a class="on" href="#ultimas">Edições</a><a href="#ultimas">Modelos</a><a href="#ultimas">Ferramentas</a><a href="#ultimas">Agentes</a><a href="#ultimas">Sobre</a></nav><button class="btn btn-line btn-icon tema" type="button" aria-label="Ativar modo escuro"><svg class="i tema-lua" aria-hidden="true"><use href="#i-moon"></use></svg><svg class="i tema-sol" aria-hidden="true"><use href="#i-sun"></use></svg></button><a class="btn btn-ink" href="#assinar">Assinar</a></header>
+
+<main>
+<section class="site-hero" data-scrub="parallax" data-spot><img src="../assets/img/capa.webp" alt=""><span class="mono kick">Edição 07 · 14 set 2026</span><h3 data-split>Antes de adotar, <em>entenda.</em></h3><p>O teste com 400 tickets que mede a distância entre o anúncio no palco e a sua segunda-feira.</p><a class="lnk" href="materia.html">Ler a edição <svg class="i" aria-hidden="true"><use href="#i-arrow"></use></svg></a></section>
+
+<div class="site-body">
+<div class="home-grid">
+<div id="ultimas">
+<div class="lbl" style="margin:0"><span class="mono">Últimas</span><span class="hr"></span><span class="mono">24 matérias</span></div>
+<div class="site-list" data-stagger>
+<a href="materia.html" data-reveal><img src="../assets/img/astra.webp" alt="" loading="lazy"><span><span class="mono">Modelos · 14 set</span><h4>GPT-6 Astra: da abertura à segurança</h4></span><span class="mono">6 min</span></a>
+<a href="materia.html" data-reveal><img src="../assets/img/fable.webp" alt="" loading="lazy"><span><span class="mono">Modelos · 12 set</span><h4>Claude Fable 5.1 e o cache que lembra</h4></span><span class="mono">5 min</span></a>
+<a href="materia.html" data-reveal><img src="../assets/img/busto.webp" alt="" loading="lazy"><span><span class="mono">Ferramentas · 10 set</span><h4>Muse Spark 1.3 em código</h4></span><span class="mono">4 min</span></a>
+<a href="materia.html" data-reveal><img src="../assets/img/mcp.webp" alt="" loading="lazy"><span><span class="mono">Agentes · 08 set</span><h4>Caminhos do MCP em 2026</h4></span><span class="mono">7 min</span></a>
+<a href="materia.html" data-reveal><img src="../assets/img/gemini.webp" alt="" loading="lazy"><span><span class="mono">Modelos · 05 set</span><h4>Gemini 3.8 Flash muda a conta</h4></span><span class="mono">5 min</span></a>
+</div>
+<div class="foot" style="border-top:1px dashed var(--line)"><span class="mono">1–5 de 24</span><a class="lnk" href="materia.html">Ver o acervo <svg class="i" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
+</div>
+
+<form class="card pad stack" id="assinar" novalidate data-reveal><span class="mono muted">Newsletter semanal</span><h3 class="serif" style="font-size:32px">Uma edição por semana, <em>com a fonte ao lado.</em></h3><p class="help">12.400 assinantes recebem a edição toda segunda.</p><label class="field"><span>Seu e-mail</span><span class="inp"><input type="email" placeholder="voce@exemplo.com" autocomplete="email"></span></label><div class="chips"><button class="btn btn-primary" type="submit">Assinar <svg class="i" aria-hidden="true"><use href="#i-arrow"></use></svg></button><span class="badge badge-pos" data-ok hidden>Inscrição confirmada</span></div><span class="help">Sem spam. Cancele quando quiser.</span></form>
+</div>
+</div>
+</main>
+
+<footer class="site-foot"><span>Um olhar de Kelvi Maycon · imagens geradas com IA</span><span class="mono">aicreatoros.com · @aicreatoros</span></footer>
+<script src="../kit-v9/kit.js"></script>
+</body>
+</html>

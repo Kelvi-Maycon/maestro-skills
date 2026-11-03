@@ -1,0 +1,19 @@
+<!-- @dsCard group="Dados" height=200 width=760 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sparkline: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+render(h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' } },
+  h('div', { className: 'card pad stack', style: { gap: '12px' } },
+    h('span', { className: 'mono muted' }, 'Assinantes · 1 – 14 set'),
+    h(D.Sparkline, { values: [10260, 10375, 10472, 10599, 10702, 10823, 10962, 11077, 11210, 11367, 11518, 11812, 12034, 12400], label: 'Assinantes subindo de 10.260 para 12.400 entre 1 e 14 set' })),
+  h('div', { className: 'card pad stack', style: { gap: '12px' } },
+    h('span', { className: 'mono muted' }, 'Novas assinaturas · destaque'),
+    h(D.Sparkline, { highlight: true, values: [18, 22, 19, 24, 20, 23, 26, 22, 25, 29, 28, 52, 40, 64], label: 'Novas assinaturas por dia, pico de 64 em 14 set' }))));
+</script>
+</body>
+</html>

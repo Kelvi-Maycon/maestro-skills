@@ -1,0 +1,61 @@
+<!-- @dsCard height=336 -->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>AiCreatorOS Design System</title>
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--page); color:var(--ink); font-family:var(--sans); overflow:hidden; }
+  .cv { position:relative; width:960px; height:336px; overflow:hidden; }
+  /* faixa superior de 112 px (7 × --s-4): blocos e padrão; o nome fica embaixo */
+  .cv-band { position:absolute; top:0; left:0; display:block; width:960px; height:112px; }
+  .cv-orange { fill:var(--orange); }
+  .cv-ink { fill:var(--ink); }
+  .cv-soft { fill:var(--soft); }
+  .cv-lime { fill:var(--lime); }
+  .cv-mid { fill:var(--mark-mid); }
+  .cv-cut { fill:var(--page); }
+  .cv-blk { rx:var(--r); }
+  .cv-media { rx:var(--r-media); }
+  /* meio-círculo do arco e pílula: rx = metade do lado curto */
+  .cv-arch { rx:calc(var(--s-24) / 2); }
+  .cv-pill { rx:var(--s-3); }
+  /* tríade 3:5:8 do símbolo, ×2: diâmetros --s-3, --s-5, --s-8 */
+  .cv-d1 { r:calc(var(--s-3) / 2); }
+  .cv-d2 { r:calc(var(--s-5) / 2); }
+  .cv-d3 { r:var(--s-4); }
+  .cv-words { position:absolute; left:var(--s-10); right:var(--s-10); bottom:var(--s-10); }
+  .cv-name { margin:0; font:500 64px/.95 var(--sans); letter-spacing:-.055em; color:var(--ink); }
+  .cv-tag { margin:var(--s-2) 0 0; font-size:14px; line-height:1.5; color:var(--muted); }
+</style>
+</head>
+<body>
+<div class="cv">
+<svg class="cv-band" viewBox="0 0 960 112" width="960" height="112" aria-hidden="true">
+<!--
+  blocos   --orange 384×112 (4 × --s-24, cantos --r), o maior, primeiro · --ink em arco 96×96 (--s-24; topo metade do lado, base --r-media, feito de três retângulos) e placa 212×112 sangrando à direita · --soft 192×72 (3 × --s-6) de alívio · --lime pílula 96×24 (--s-24 × --s-6), pequena porque só marca estado positivo · ≈27% de 960×336
+  arranjo  faixa superior de 112 px (7 × --s-4) porque "Design System" a 64 px passa de 440 px; blocos sangram do topo e da direita, bases numa linha, gutter --s-3, alturas desencontradas como os três círculos do símbolo
+  padrão   motivo literal: tríades de discos 3:5:8, o símbolo de três círculos que é a forma própria da marca ("três círculos, raios 3 · 5 · 8"); recortadas em --page no laranja, nas cores do símbolo no --soft e no --ink; 15 discos
+  escalas  diâmetros --s-3 · --s-5 · --s-8 com gap --s-2 (o símbolo ×2); inset das tríades --s-6, base --s-4 acima da linha; inset do texto --s-10; raios --r, --r-media, pílula e meio-círculo = metade do lado curto
+-->
+<rect class="cv-orange cv-blk" x="40" y="-24" width="384" height="136" rx="24"/>
+<rect class="cv-ink cv-arch" x="436" y="16" width="96" height="96" rx="48"/>
+<rect class="cv-ink cv-media" x="436" y="64" width="96" height="48" rx="16"/>
+<rect class="cv-ink" x="436" y="64" width="96" height="32"/>
+<rect class="cv-soft cv-blk" x="544" y="-24" width="192" height="96" rx="24"/>
+<rect class="cv-lime cv-pill" x="544" y="88" width="96" height="24" rx="12"/>
+<rect class="cv-ink cv-blk" x="748" y="-24" width="236" height="136" rx="24"/>
+<circle class="cv-cut cv-d1" cx="70" cy="80" r="6"/><circle class="cv-cut cv-d2" cx="94" cy="80" r="10"/><circle class="cv-cut cv-d3" cx="128" cy="80" r="16"/>
+<circle class="cv-cut cv-d1" cx="166" cy="80" r="6"/><circle class="cv-cut cv-d2" cx="190" cy="80" r="10"/><circle class="cv-cut cv-d3" cx="224" cy="80" r="16"/>
+<circle class="cv-cut cv-d1" cx="262" cy="80" r="6"/><circle class="cv-cut cv-d2" cx="286" cy="80" r="10"/><circle class="cv-cut cv-d3" cx="320" cy="80" r="16"/>
+<circle class="cv-orange cv-d1" cx="574" cy="36" r="6"/><circle class="cv-mid cv-d2" cx="598" cy="36" r="10"/><circle class="cv-ink cv-d3" cx="632" cy="36" r="16"/>
+<circle class="cv-orange cv-d1" cx="778" cy="80" r="6"/><circle class="cv-mid cv-d2" cx="802" cy="80" r="10"/><circle class="cv-cut cv-d3" cx="836" cy="80" r="16"/>
+</svg>
+<div class="cv-words">
+<h1 class="cv-name">AiCreatorOS<br>Design System</h1>
+<p class="cv-tag">Notícias e testes de inteligência artificial, com a fonte ao lado.</p>
+</div>
+</div>
+</body>
+</html>

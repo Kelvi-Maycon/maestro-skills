@@ -1,0 +1,19 @@
+<!-- @dsCard group="Marca" height=210 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Icon: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+var names = ['arrow', 'back', 'diag', 'down', 'plus', 'search', 'grid', 'pen', 'clock', 'alert', 'image', 'sliders', 'save', 'doc', 'layers', 'settings', 'ruler', 'mail', 'list'];
+render(h('div', { className: 'card pad' },
+  h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(10, minmax(0, 1fr))', gap: '20px 8px' } },
+    names.map(function (n) {
+      return h('div', { key: n, style: { display: 'grid', gap: '8px', justifyItems: 'center' } },
+        h(D.Icon, { name: n }), h('span', { className: 'mono muted' }, n));
+    }))));
+</script>
+</body>
+</html>

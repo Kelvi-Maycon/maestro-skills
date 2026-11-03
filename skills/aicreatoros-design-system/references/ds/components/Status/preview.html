@@ -1,0 +1,19 @@
+<!-- @dsCard group="Feedback" height=120 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Status: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+render(h('div', { className: 'card pad chips', style: { gap: '10px 18px' } },
+  h(D.Status, { tone: 'positive' }, 'Sincronizado'),
+  h(D.Status, { tone: 'warn' }, 'Atrasado 2 h'),
+  h(D.Status, { tone: 'neg' }, 'Falhou'),
+  h(D.Status, { tone: 'idle' }, 'Pausado'),
+  h(D.Status, { tone: 'live' }, 'Ao vivo'),
+  h(D.Status, { tone: 'warn', label: 'Atrasado' })));
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!-- @dsCard group="Ações" height=180 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>IconButton: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+function col(title, kids) {
+  return h('div', { style: { display: 'grid', gap: '16px', justifyItems: 'start', alignContent: 'start' } },
+    [h('span', { key: 't', className: 'mono muted' }, title)].concat(kids));
+}
+render(h('div', { className: 'card pad', style: { display: 'grid', gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: '20px 16px' } },
+  col('Seta 32', [h('div', { key: 1, className: 'chips' }, h(D.IconButton, { variant: 'primary', label: 'Próxima' }), h(D.IconButton, { icon: 'back', label: 'Anterior' }))]),
+  col('Seta 28 e 40', [h('div', { key: 1, className: 'chips' }, h(D.IconButton, { variant: 'primary', size: 'sm', icon: 'diag', label: 'Abrir' }), h(D.IconButton, { size: 'lg', variant: 'primary', label: 'Ler a edição' }))]),
+  col('Hover', [h(D.IconButton, { key: 1, variant: 'primary', className: 'is-hover', label: 'Próxima' })]),
+  col('Foco', [h(D.IconButton, { key: 1, variant: 'primary', className: 'is-focus', label: 'Próxima' })]),
+  col('Bloqueado', [h(D.IconButton, { key: 1, disabled: true, label: 'Próxima' })])));
+</script>
+</body>
+</html>

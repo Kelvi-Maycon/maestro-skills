@@ -1,0 +1,16 @@
+<!-- @dsCard group="Campos" height=350 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Input: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+render(h('div', { className: 'card pad stack', style: { maxWidth: '560px' } },
+  h(D.Input, { label: 'Seu e-mail', icon: 'mail', type: 'email', defaultValue: 'kelvi@aicreatoros.com', autoComplete: 'email' }),
+  h(D.Input, { label: 'Site da fonte', type: 'url', defaultValue: 'openai', error: 'Inclua o endereço completo, com https://' }),
+  h(D.Input, { label: 'Buscar no acervo', icon: 'search', type: 'search', placeholder: 'Modelo, ferramenta ou autor', kbd: '/' })));
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!-- @dsCard group="Produto" height=670 width=1200 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Editor: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+var TEXT = 'O protocolo saiu do laboratório. Em 2026, três servidores MCP respondem por 70% das integrações que testei, e o gargalo mudou de lugar: não é mais conectar, é decidir o que a conexão pode fazer.\n\nFechei a amostra em 12 servidores públicos e 40 fluxos. O que funcionou, o que quebrou e o que ainda depende de leitura humana.';
+render(h(D.ContentPanel, { crumbs: ['AiCreatorOS', 'Rascunhos'], plain: true,
+  tools: h(React.Fragment, null, h(D.Segmented, { label: 'Modo de exibição', options: [{ value: 'grid', label: 'Grade', icon: 'grid' }, { value: 'list', label: 'Lista', icon: 'list' }] }), h(D.Button, { variant: 'ink', iconStart: 'plus' }, 'Nova matéria')) },
+  h(D.Editor, { kicker: 'Rascunho · Agentes', defaultTitle: 'Caminhos do MCP em 2026', defaultText: TEXT,
+    tools: [h(D.Button, { key: 'b', variant: 'line', iconStart: 'image' }, 'Imagem de capa'), h('span', { key: 'h', className: 'help' }, 'Rascunho salvo às 09:42')],
+    side: h(React.Fragment, null,
+      h(D.Label, { label: 'Publicação', meta: h(D.Badge, { tone: 'draft' }, 'Rascunho'), style: { margin: 0 } }),
+      h(D.Select, { label: 'Categoria', options: ['Agentes', 'Modelos', 'Ferramentas'] }),
+      h(D.Input, { label: 'Publicar em', icon: 'clock', defaultValue: '16 set 2026 · 08:00' }),
+      h('div', { className: 'stack', style: { gap: '12px' } },
+        h(D.Checkbox, { label: 'Fonte ao lado', defaultChecked: true }),
+        h(D.Checkbox, { label: 'Ressalva escrita', defaultChecked: true }),
+        h(D.Checkbox, { label: 'Imagem declarada' })),
+      h(D.Log, { entries: [{ time: '09:42', title: 'Rascunho salvo', text: '312 palavras' }, { time: '09:31', text: 'Categoria alterada para Agentes' }, { time: '09:12', text: 'Criado a partir da pauta 14' }] }),
+      h('div', { className: 'ed-actions' }, h(D.Button, { variant: 'line' }, 'Pré-visualizar'), h(D.Button, { variant: 'primary', icon: 'arrow' }, 'Revisar'))) })));
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!-- @dsCard group="Campos" height=270 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Select: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+render(h('div', { className: 'card pad stack', style: { maxWidth: '560px' } },
+  h(D.Select, { label: 'Categoria', options: ['Modelos', 'Ferramentas', 'Agentes', 'Automação'] }),
+  h(D.Select, { label: 'Categoria', options: ['Agentes', 'Modelos', 'Ferramentas'], help: 'Define a seção da matéria no acervo.' })));
+</script>
+</body>
+</html>

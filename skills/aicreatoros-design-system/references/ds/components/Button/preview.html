@@ -1,0 +1,40 @@
+<!-- @dsCard group="Ações" height=480 width=1000 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Button: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+function col(title, kids) {
+  return h('div', { style: { display: 'grid', gap: '12px', justifyItems: 'start', alignContent: 'start' } },
+    [h('span', { key: 't', className: 'mono muted' }, title)].concat(kids));
+}
+var grid = { display: 'grid', gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: '20px 16px' };
+render(h('div', { className: 'card pad' },
+  h(D.Label, { label: '06.1 Botões', meta: 'Padrão 32 px · canto 8 · texto 14' }),
+  h('div', { className: 'chips' },
+    h(D.Button, { variant: 'primary', icon: 'arrow' }, 'Ler a edição'),
+    h(D.Button, { variant: 'ink' }, 'Salvar rascunho'),
+    h(D.Button, { variant: 'line' }, 'Cancelar'),
+    h(D.Button, { variant: 'ghost', iconStart: 'sliders' }, 'Filtrar')),
+  h('div', { className: 'dash', style: { margin: '24px 0 20px' } }),
+  h('div', { style: grid },
+    col('Pequeno · 28', [h(D.Button, { key: 1, size: 'sm', variant: 'primary' }, 'Aplicar'), h(D.Button, { key: 2, size: 'sm' }, 'Limpar')]),
+    col('Padrão · 32', [h(D.Button, { key: 1, variant: 'primary', icon: 'arrow' }, 'Publicar'), h(D.Button, { key: 2 }, 'Cancelar')]),
+    col('Grande · 40', [h(D.Button, { key: 1, size: 'lg', variant: 'primary', icon: 'arrow' }, 'Ler a edição'), h(D.Button, { key: 2, size: 'lg' }, 'Ver o produto')]),
+    col('Só ícone', [h('div', { key: 1, className: 'chips' },
+      h(D.Button, { size: 'sm', iconOnly: true, icon: 'plus', label: 'Adicionar' }),
+      h(D.Button, { iconOnly: true, icon: 'plus', label: 'Adicionar' }),
+      h(D.Button, { size: 'lg', iconOnly: true, icon: 'plus', label: 'Adicionar' }))]),
+    col('Fantasma', [h(D.Button, { key: 1, variant: 'ghost', iconStart: 'sliders' }, 'Filtrar'), h(D.Button, { key: 2, size: 'sm', variant: 'ghost', iconStart: 'grid' }, 'Colunas')])),
+  h('div', { className: 'dash', style: { margin: '24px 0 20px' } }),
+  h('div', { style: grid },
+    col('Hover', [h(D.Button, { key: 1, variant: 'primary', icon: 'arrow', className: 'is-hover' }, 'Publicar'), h(D.Button, { key: 2, variant: 'ink', className: 'is-hover' }, 'Salvar')]),
+    col('Foco', [h(D.Button, { key: 1, variant: 'primary', icon: 'arrow', className: 'is-focus' }, 'Publicar'), h(D.Button, { key: 2, variant: 'ink', className: 'is-focus' }, 'Salvar')]),
+    col('Bloqueado', [h(D.Button, { key: 1, variant: 'primary', icon: 'arrow', disabled: true }, 'Publicar'), h(D.Button, { key: 2, variant: 'ink', disabled: true }, 'Salvar')]),
+    col('Carregando', [h(D.Button, { key: 1, variant: 'primary', busy: true }, 'Publicando'), h(D.Button, { key: 2, variant: 'ink', busy: true }, 'Salvando')]))));
+</script>
+</body>
+</html>

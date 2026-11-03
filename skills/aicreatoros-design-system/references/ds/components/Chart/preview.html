@@ -1,0 +1,23 @@
+<!-- @dsCard group="Dados" height=390 width=900 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chart: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+var DIAS = [18, 22, 19, 24, 20, 23, 26, 22, 25, 29, 28, 52, 40, 64];
+render(h('div', { className: 'card pad stack', style: { gap: '20px' } },
+  h('div', { className: 'panel-head', style: { margin: 0 } },
+    h('div', null, h('h4', null, 'Assinaturas por dia'), h('p', null, '412 no período · média de 29 por dia')),
+    h(D.Legend, { items: [{ label: 'Dia comum' }, { label: 'Dia de edição', tone: 'hi' }, { label: 'Média', tone: 'avg' }] })),
+  h(D.Chart, {
+    values: DIAS,
+    dates: DIAS.map(function (v, i) { return (i + 1) + ' set'; }),
+    average: true, highlight: 13, annotation: 'Edição 07',
+    label: 'Assinaturas por dia de 1 a 14 de setembro. Média de 29 por dia; pico de 64 em 14 set, dia da edição 07.'
+  })));
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<!--
+Modelo: e-mail da edição semanal, na largura de e-mail (640 px) e centralizado.
+Capítulo do kit: #newsletter (.card.mail .env .mbody .cover .story .signoff).
+Trocar: número e data da edição, título (um trecho em <em>), resumo, imagem de capa, as matérias em .story, link do botão.
+Não mexer: um único botão laranja, divisórias tracejadas entre matérias, rodapé com cancelamento e aviso de imagem gerada.
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edição 07 · AiCreatorOS</title>
+<script>try{if(localStorage.getItem('aios-tema')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../kit-v9/kit.css">
+<style>
+body{padding:40px 16px}
+.mail{max-width:640px;margin-inline:auto}
+@media(max-width:560px){body{padding:12px 8px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="mark" viewBox="0 0 40 16"><circle cx="3" cy="8" r="3" fill="var(--m1,#F05A37)"></circle><circle cx="15" cy="8" r="5" fill="var(--m2,#8D8B86)"></circle><circle cx="32" cy="8" r="8" fill="var(--m3,#1D1D1B)"></circle></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></symbol>
+</svg>
+
+<article class="card mail"><div class="env"><span><b>AiCreatorOS</b></span><span>kelvi@aicreatoros.com</span><span>Edição 07 · 14 set 2026</span></div>
+<div class="mbody"><span class="brand"><svg class="mark" aria-hidden="true"><use href="#mark"></use></svg><span class="wordmark" style="font-size:24px">aicreator<em>os</em></span></span>
+<span class="mono muted">Edição 07 · duas matérias e um teste</span><h3>Antes de adotar, <em>entenda.</em></h3><p>Esta semana: o que muda nos modelos anunciados em setembro e o teste com 400 tickets que mede a distância entre o palco e a segunda-feira.</p>
+<img class="cover" src="../assets/img/fable.webp" alt="Biblioteca de corredores altos com uma esfera laranja suspensa.">
+<div><div class="story"><i>01</i><div><strong>GPT-6 Astra: da abertura à segurança</strong><p>O que muda no acesso, o que continua fechado e o que a nota de lançamento não conta.</p></div></div><div class="story"><i>02</i><div><strong>Três IAs, 400 tickets</strong><p>Claude Fable 5.1 aprovou 47% sem edição. GPT-6 Astra, 31%. Gemini 3.8 Flash, 22%.</p></div></div><div class="story"><i>03</i><div><strong>Caminhos do MCP em 2026</strong><p>Onde o protocolo já resolve integração e onde ainda depende de leitura humana.</p></div></div></div>
+<a class="btn btn-primary" href="materia.html" style="justify-self:start">Ler a edição <svg class="i" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+<div class="signoff"><span>Um olhar de Kelvi Maycon.</span><span class="mono muted">Você recebe porque assinou · cancelar · imagens geradas com IA</span></div></div></article>
+</body>
+</html>

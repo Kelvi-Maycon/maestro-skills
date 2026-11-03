@@ -1,0 +1,20 @@
+:root{
+--sans:"Instrument Sans",system-ui,sans-serif; /* @kind font */
+--serif:"ITC Garamond Cond",Georgia,serif; /* @kind font */
+--mono:"JetBrains Mono",ui-monospace,monospace; /* @kind font */
+--font-ui:var(--sans);--font-editorial:var(--serif);--font-data:var(--mono);
+--fs-mono:11px;--fs-meta:13px;--fs-ui:14px;--fs-control:14px;--fs-body:17px;--fs-lead:21px;
+--fs-h3:30px;--fs-h2:40px;--fs-display:56px;--fs-num:44px;
+--tr-display:-.055em; /* @kind other */
+--tr-title:-.045em; /* @kind other */
+--tr-h2:-.04em; /* @kind other */
+--tr-serif:-.02em; /* @kind other */
+--tr-mono:.06em; /* @kind other */
+--lh-tight:1.05; /* @kind other */
+--lh-serif:1.1; /* @kind other */
+--lh-body:1.5; /* @kind other */
+--lh-prose:1.6; /* @kind other */
+--w-body:400; /* @kind font */
+--w-ui:500; /* @kind font */
+--w-strong:600; /* @kind font */
+--w-mark:700 /* @kind font */}

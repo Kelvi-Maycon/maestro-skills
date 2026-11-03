@@ -1,0 +1,17 @@
+<!-- @dsCard group="Feedback" height=190 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tooltip: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+render(h('div', { className: 'card pad', style: { display: 'flex', gap: '48px', alignItems: 'end' } },
+  h(D.Tooltip, { label: 'Publica na data agendada', open: true, align: 'start' },
+    h('span', { className: 'mono' }, 'Tooltip · 13 px, aparece em foco e em hover')),
+  h(D.Tooltip, { label: 'Publica na data agendada' },
+    h(D.IconButton, { icon: 'clock', label: 'Agendar' }))));
+</script>
+</body>
+</html>

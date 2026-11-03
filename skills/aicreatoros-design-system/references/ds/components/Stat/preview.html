@@ -1,0 +1,36 @@
+<!-- @dsCard group="Dados" height=680 width=1000 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Stat: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+var ASSINANTES = [10260, 10375, 10472, 10599, 10702, 10823, 10962, 11077, 11210, 11367, 11518, 11812, 12034, 12400];
+render(h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '20px', alignItems: 'stretch' } },
+  h(D.Stat, { icon: 'list', label: 'Assinantes', aside: '1 – 14 set', value: '12.400', size: 'lg', delta: h(D.Delta, { direction: 'up' }, '3,1%'),
+    viz: h(D.Sparkline, { values: ASSINANTES }),
+    foot: h(React.Fragment, null, h('b', null, '+374'), ' no período: 412 entradas e 38 saídas') }),
+  h(D.Stat, { icon: 'doc', label: 'Leitura completa', aside: '1 – 14 set', value: '6.134', size: 'lg', note: 'leituras até o fim',
+    row: [h(D.Ring, { key: 'r', value: 33.3 }), h('p', { key: 'p' }, h('b', null, '33,3% das 18.420 visitas'), 'chegaram ao fim da matéria')],
+    foot: 'Conta como lida a rolagem acima de 90%' }),
+  h(D.Stat, { icon: 'mail', label: 'Taxa de abertura', aside: h(D.Badge, { tone: 'warn' }, 'Abaixo da meta'), value: '48,2', unit: '%', size: 'lg', delta: h(D.Delta, { direction: 'down' }, '1,2 p.p.'),
+    viz: h(D.Meter, { value: 48.2, goal: 50, scale: true, 'aria-label': 'Taxa de abertura 48,2%, meta 50%' }),
+    foot: h(React.Fragment, null, h('b', null, '5.977'), ' de 12.400 abriram a edição 07') }),
+  h(D.Stat, { icon: 'layers', label: 'Aderência por modelo', aside: 'De 400', value: '47', unit: '%', size: 'lg', note: 'Claude Fable 5.1, 16 p.p. à frente',
+    viz: h(D.HBars, { max: 100, items: [
+      { label: 'Claude Fable 5.1', value: 47, valueLabel: '47%', highlight: true },
+      { label: 'GPT-6 Astra', value: 31, valueLabel: '31%' },
+      { label: 'Gemini 3.8 Flash', value: 22, valueLabel: '22%' }
+    ] }),
+    foot: 'Aprovadas sem edição, avaliação cega' }),
+  h(D.Stat, { icon: 'ruler', label: 'Testes do mês', aside: 'Meta 10', value: '7', unit: 'de 10', size: 'lg', note: 'faltam 3 para a meta',
+    viz: h(D.Pips, { total: 10, filled: 4, highlighted: 3 }),
+    foot: h(D.Legend, { items: [{ tone: 'on', label: '4 publicados' }, { tone: 'hi', label: '3 em revisão' }, { tone: 'off', label: '3 a fazer' }] }) }),
+  h(D.Stat, { icon: 'plus', label: 'Novas assinaturas', aside: '14 dias', value: '412', size: 'lg', delta: h(D.Delta, { direction: 'up' }, '12%'),
+    viz: h(D.Spark, { values: [28, 34, 30, 38, 31, 36, 41, 34, 39, 45, 44, 81, 62, 100] }),
+    foot: h(React.Fragment, null, 'Pico em ', h('b', null, '14 set'), ', dia da edição 07: ', h('b', null, '64')) })));
+</script>
+</body>
+</html>

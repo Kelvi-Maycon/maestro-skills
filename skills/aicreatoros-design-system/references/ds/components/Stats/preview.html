@@ -1,0 +1,28 @@
+<!-- @dsCard group="Dados" height=240 width=1440 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Stats: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+function stat(label, value, unit, dir, delta, foot, tone) {
+  return h(D.Stat, { key: label, label: label, value: value, unit: unit, delta: h(D.Delta, { direction: dir, tone: tone }, delta), foot: foot });
+}
+function b(t) { return h('b', null, t); }
+var F = React.Fragment;
+var KPIS = [
+  stat('Assinantes', '12.400', null, 'up', '3,1%', h(F, null, 'eram ', b('12.026'), ' em 31 ago')),
+  stat('Abertura', '48,2', '%', 'down', '1,2 p.p.', h(F, null, b('5.977'), ' abriram · meta 50%')),
+  stat('Cliques', '1.930', null, 'down', '2,3%', h(F, null, b('32,3%'), ' de quem abriu')),
+  stat('Leitura completa', '33,3', '%', 'up', '2,1 p.p.', h(F, null, b('6.134'), ' leram até o fim')),
+  stat('Novas assinaturas', '412', null, 'up', '12%', h(F, null, 'pico de ', b('64'), ' em 14 set')),
+  stat('Descadastros', '38', null, 'down', '9%', h(F, null, b('0,3%'), ' da base'), 'good'),
+  stat('Receita', h(F, null, h('small', null, 'R$'), '18,6'), 'mil', 'up', '8%', 'patrocínio e afiliados'),
+  stat('Receita média', h(F, null, h('small', null, 'R$'), '1,50'), null, 'up', '5%', h(F, null, 'por assinante · era ', b('R$ 1,43')))
+];
+render(h('article', { className: 'card panel' }, h(D.Stats, null, KPIS)));
+</script>
+</body>
+</html>

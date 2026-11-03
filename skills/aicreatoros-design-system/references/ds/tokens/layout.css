@@ -1,0 +1,36 @@
+:root{
+--s-1:4px;--s-2:8px;--s-3:12px;--s-4:16px;--s-5:20px;--s-6:24px;--s-8:32px;--s-10:40px;--s-14:56px;--s-20:80px;--s-24:96px;
+--r:24px;--r2:12px;--r-media:16px;--r-pill:999px;--r-sm:8px;--r-menu:10px;--r-slide:20px;
+--gutter:40px;--gutter-md:24px;--gutter-sm:16px;
+--h-control-sm:28px;--h-control:32px;--h-control-lg:40px; /* densidade padrão: botão, campo, seta em círculo */
+--h-field:var(--h-control);--h-round:var(--h-control);--h-round-sm:var(--h-control-sm);--h-seg:calc(var(--h-control) - 6px);--h-badge:22px;--h-top:76px;
+--h-row:48px; /* linha de tabela: nome e linha de apoio */
+--h-th:32px; /* cabeçalho de tabela */
+--inset:16px; /* respiro interno de stat, célula e item de painel */
+--r-ctl:8px;--r-ctl-sm:6px; /* canto de botão, campo e segmentado */
+--gap-inline:8px;--gap-label:8px;--gap-item:8px;--gap-group:16px;--gap-block:24px;--gap-section:48px; /* @kind spacing */
+--icon:20px;--icon-sm:16px;--icon-xs:14px;
+--switch-w:32px;--switch-h:20px;--switch-knob:14px;
+--ws-rail:56px;--ws-menu:232px;
+--h-pn-cab:52px; /* cabeçalho de painel: altura fixa, título na mesma linha entre painéis vizinhos */
+--pad-pn:16px;--gap-vista:16px; /* tela de produto: corpo de painel e espaço entre painéis. Escala única 4 · 8 · 12 · 16 · 24 (2 só para ajuste fino) */
+--w-sumario:312px; /* navegação lateral e sumário: 300 a 320 */
+--bp-lg:1180px;--bp-md:860px;--bp-sm:560px; /* referência: media queries não leem var() */
+--bw:1px; /* @kind spacing */
+--focus-width:2px; /* @kind spacing */
+--focus-offset:3px; /* @kind spacing */
+--ease:cubic-bezier(.2,.6,.2,1); /* @kind other */
+--dur-press:.1s; /* @kind other */
+--dur-fast:.15s; /* @kind other */
+--dur-slow:.3s; /* @kind other */
+--dur-image:.4s; /* @kind other */
+--dur-enter:.48s; /* @kind other */
+--dur-draw:.8s; /* @kind other */
+--dur-hero:1.4s; /* @kind other */
+--stagger:40ms; /* @kind other */
+--ease-out:cubic-bezier(.16,1,.3,1); /* @kind other */
+--ease-in-out:cubic-bezier(.65,0,.35,1); /* @kind other */
+--ease-back:cubic-bezier(.34,1.56,.64,1) /* @kind other */}
+/* Densidade: troque no contêiner com data-density. Controles: padrão 28/32/40, compacta 24/28/36, confortável 32/40/48 (mobile e configuração). Linha de tabela: 48, 36 (só a primeira linha) e 60; cabeçalho 32, 28 e 36. */
+[data-density=compacta]{--h-control-sm:24px;--h-control:28px;--h-control-lg:36px;--h-row:36px;--h-th:28px;--inset:12px}
+[data-density=confortavel]{--h-control-sm:32px;--h-control:40px;--h-control-lg:48px;--h-row:60px;--h-th:36px;--inset:24px}

@@ -1,0 +1,27 @@
+<!-- @dsCard group="Feedback" height=250 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Badge: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+render(h('div', { className: 'stack' },
+  h('div', { className: 'card pad chips' },
+    h(D.Badge, { tone: 'positive' }, 'Publicado'),
+    h(D.Badge, { tone: 'live' }, 'Em revisão'),
+    h(D.Badge, null, 'Agendado'),
+    h(D.Badge, { tone: 'draft' }, 'Rascunho'),
+    h(D.Badge, { tone: 'warn' }, 'Fonte pendente'),
+    h(D.Badge, { tone: 'neg' }, 'Envio parou'),
+    h(D.Badge, { tone: 'info' }, 'Novo'),
+    h(D.Badge, { tone: 'neg', square: true }, 'maior queda')),
+  h('div', { className: 'ink pad chips' },
+    h(D.Badge, { tone: 'positive' }, 'Publicado'),
+    h(D.Badge, { tone: 'live' }, 'Em revisão'),
+    h(D.Badge, null, 'Agendado'),
+    h(D.Badge, { tone: 'draft' }, 'Rascunho'))));
+</script>
+</body>
+</html>

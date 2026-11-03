@@ -1,0 +1,41 @@
+<!doctype html>
+<!--
+Modelo: carrossel 4:5 de 5 slides para o feed. Capa sobre imagem, três slides de papel (barras, texto, texto) e fecho em tinta.
+Capítulo do kit: #social (.slide .slide-cover .slide-paper .slide-end .slide-safe .slide-kick .slide-bars .slide-note .slide-chrome).
+Cada slide tem 432 px de largura (432 × 540); exportar a 2,5× dá 1080 × 1350. As medidas internas são em cqi e escalam juntas.
+Trocar: imagem da capa, kicker, títulos (um trecho em <em>), barras (valor e --v), notas, contador "n / 5" se mudar o total.
+Não mexer: nada no topo do slide (sem contador nem marca), @ e contador só no .slide-chrome do rodapé, texto dentro da área segura.
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carrossel · AiCreatorOS</title>
+<script>try{if(localStorage.getItem('aios-tema')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../kit-v9/kit.css">
+<style>
+body{padding:40px 0}
+.reel{display:flex;gap:16px;overflow-x:auto;padding:0 40px 16px;scroll-snap-type:x mandatory;scroll-padding-inline:40px}
+.reel>.slide{flex:none;width:432px;scroll-snap-align:start}
+@media(max-width:560px){body{padding:16px 0}.reel{padding-inline:16px;scroll-padding-inline:16px}.reel>.slide{width:min(432px,calc(100vw - 32px))}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="mark" viewBox="0 0 40 16"><circle cx="3" cy="8" r="3" fill="var(--m1,#F05A37)"></circle><circle cx="15" cy="8" r="5" fill="var(--m2,#8D8B86)"></circle><circle cx="32" cy="8" r="8" fill="var(--m3,#1D1D1B)"></circle></symbol>
+</svg>
+
+<div class="reel" aria-label="Carrossel, 5 slides">
+<article class="slide slide-cover"><img src="../assets/img/arcos.webp" alt=""><div class="slide-safe"><span class="slide-kick">Teste de campo · edição 07</span><h3>Três IAs no suporte. Uma aprovou quase <em>metade.</em></h3></div><div class="slide-chrome"><span>@aicreatoros</span><span>1 / 5</span></div></article>
+
+<article class="slide slide-paper"><div class="slide-safe split"><span class="slide-kick">Aprovadas sem edição, de 400</span><div class="slide-bars"><div class="hi"><span>Claude Fable 5.1</span><b>47<small>%</small></b><i style="--v:47%"></i></div><div><span>GPT-6 Astra</span><b>31<small>%</small></b><i style="--v:31%"></i></div><div><span>Gemini 3.8 Flash</span><b>22<small>%</small></b><i style="--v:22%"></i></div></div><div class="slide-note">Uma empresa B2B, 14 dias, avaliação cega</div></div><div class="slide-chrome"><span>@aicreatoros</span><span>2 / 5</span></div></article>
+
+<article class="slide slide-paper"><div class="slide-safe split"><span class="slide-kick">O que o número não diz</span><div class="slide-group"><h3>Revisar é mais rápido do que <em>escrever.</em></h3><p>Com o GPT-6 Astra, cada ticket passou de 5,1 para 2,4 minutos. O ganho está na fila, não na resposta perfeita.</p></div><div class="slide-note">31% de aderência, 400 tickets</div></div><div class="slide-chrome"><span>@aicreatoros</span><span>3 / 5</span></div></article>
+
+<article class="slide slide-paper"><div class="slide-safe split"><span class="slide-kick">Quando vale</span><div class="slide-group"><h3>Fila alta, resposta&nbsp;<em>padronizável.</em></h3><p>Não vale para suporte técnico de segundo nível: lá, 69% de reescrita custam mais do que o tempo poupado.</p></div><div class="slide-note">Recomendação condicional</div></div><div class="slide-chrome"><span>@aicreatoros</span><span>4 / 5</span></div></article>
+
+<article class="slide slide-end"><div class="slide-safe split"><svg class="mark" aria-hidden="true"><use href="#mark"></use></svg><div class="slide-group"><h3>Comente <em>TESTE</em> e receba o método completo.</h3><div class="slide-note">A tabela e a ressalva estão no site</div></div></div><div class="slide-chrome"><span>@aicreatoros</span><span>5 / 5</span></div></article>
+</div>
+</body>
+</html>

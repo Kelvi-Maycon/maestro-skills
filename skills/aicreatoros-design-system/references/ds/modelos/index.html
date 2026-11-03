@@ -1,0 +1,46 @@
+<!doctype html>
+<!--
+Índice dos modelos. Cada modelo é uma página pronta para copiar: parta dele em vez de montar layout do zero.
+Miniaturas em miniaturas/*.jpg (captura do topo de cada modelo em 1920 × 1200, salva em 960 × 600). Ao criar um modelo novo, acrescente um .mini aqui.
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modelos · AiCreatorOS</title>
+<script>try{if(localStorage.getItem('aios-tema')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../kit-v9/kit.css">
+<style>
+main{padding:48px 40px 64px;display:grid;gap:32px}
+header{display:grid;gap:16px;max-width:60ch}
+header h1{font-size:clamp(40px,5vw,64px)}
+header p{font-size:17px;line-height:1.5;color:var(--muted)}
+.mini img{object-position:top center}
+.minis{grid-template-columns:repeat(auto-fit,minmax(360px,1fr))} /* tela larga: todos os modelos numa fileira */
+main{position:relative}main>.tema{position:absolute;top:45px;right:40px} /* botão de tema no eixo da marca */
+@media(max-width:860px){main{padding:32px 24px 48px}main>.tema{top:29px;right:24px}}
+@media(max-width:560px){main{padding:24px 16px 40px}main>.tema{top:20px;right:16px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="mark" viewBox="0 0 40 16"><circle cx="3" cy="8" r="3" fill="var(--m1,#F05A37)"></circle><circle cx="15" cy="8" r="5" fill="var(--m2,#8D8B86)"></circle><circle cx="32" cy="8" r="8" fill="var(--m3,#1D1D1B)"></circle></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></symbol>
+</svg>
+<main>
+<button class="btn btn-line btn-icon tema" type="button" aria-label="Ativar modo escuro"><svg class="i tema-lua" aria-hidden="true"><use href="#i-moon"></use></svg><svg class="i tema-sol" aria-hidden="true"><use href="#i-sun"></use></svg></button>
+<header><span class="brand"><svg class="mark" aria-hidden="true"><use href="#mark"></use></svg><span class="wordmark">aicreator<em>os</em></span></span><h1>Modelos <em>prontos.</em></h1><p>Seis páginas montadas só com as classes do kit. Copie a mais próxima do que vai fazer, troque texto, número e imagem, e mantenha a estrutura.</p></header>
+<div class="minis">
+<a class="mini" href="painel.html"><img src="miniaturas/painel.jpg" alt="Miniatura do painel"><div class="mt"><span class="mono muted">Produto</span><h4>Painel do período</h4></div><div class="meta"><span>Faixa de KPIs, funil e tabela</span><span class="mono">painel.html</span></div></a>
+<a class="mini" href="site-home.html"><img src="miniaturas/site-home.jpg" alt="Miniatura da home do site"><div class="mt"><span class="mono muted">Site</span><h4>Home da edição</h4></div><div class="meta"><span>Capa, lista de matérias e inscrição</span><span class="mono">site-home.html</span></div></a>
+<a class="mini" href="materia.html"><img src="miniaturas/materia.jpg" alt="Miniatura da matéria"><div class="mt"><span class="mono muted">Leitura</span><h4>Matéria com ficha</h4></div><div class="meta"><span>Texto longo com ficha do teste ao lado</span><span class="mono">materia.html</span></div></a>
+<a class="mini" href="newsletter.html"><img src="miniaturas/newsletter.jpg" alt="Miniatura da newsletter"><div class="mt"><span class="mono muted">Newsletter</span><h4>E-mail da edição</h4></div><div class="meta"><span>640 px, um botão laranja</span><span class="mono">newsletter.html</span></div></a>
+<a class="mini" href="carrossel.html"><img src="miniaturas/carrossel.jpg" alt="Miniatura do carrossel"><div class="mt"><span class="mono muted">Social</span><h4>Carrossel 4:5</h4></div><div class="meta"><span>Cinco slides, 1080 × 1350 na exportação</span><span class="mono">carrossel.html</span></div></a>
+<a class="mini" href="mobile.html"><img src="miniaturas/mobile.jpg" alt="Miniatura das telas mobile"><div class="mt"><span class="mono muted">Mobile</span><h4>Três telas de 390 px</h4></div><div class="meta"><span>Leitura, acervo e inscrição</span><span class="mono">mobile.html</span></div></a>
+</div>
+</main>
+<script src="../kit-v9/kit.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!-- @dsCard group="Marca" height=200 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wordmark: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+var stage = { display: 'grid', placeItems: 'center', minHeight: '152px', padding: '32px' };
+render(h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' } },
+  h('div', { className: 'card', style: stage }, h(D.Wordmark, { size: 40 })),
+  h('div', { className: 'ink', style: stage }, h(D.Wordmark, { size: 40 }))));
+</script>
+</body>
+</html>

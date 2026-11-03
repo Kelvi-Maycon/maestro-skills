@@ -1,0 +1,15 @@
+<!-- @dsCard group="Campos" height=200 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kbd: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+render(h('div', { className: 'card pad stack', style: { maxWidth: '560px' } },
+  h('div', { className: 'chips' }, h(D.Kbd, null, '/'), h('span', { className: 'help' }, 'Leva o foco para a busca')),
+  h(D.Input, { label: 'Buscar no acervo', icon: 'search', type: 'search', placeholder: 'Modelo, ferramenta ou autor', kbd: '/' })));
+</script>
+</body>
+</html>

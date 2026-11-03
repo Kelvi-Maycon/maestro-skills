@@ -1,0 +1,15 @@
+<!-- @dsCard group="Dados" height=220 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ring: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+render(h('div', { className: 'card pad chips', style: { gap: '32px' } },
+  h(D.Ring, { value: 33.3 }),
+  h(D.Ring, { value: 48.2, size: 'lg', valueLabel: '48,2%' })));
+</script>
+</body>
+</html>

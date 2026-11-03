@@ -1,0 +1,20 @@
+<!-- @dsCard group="Dados" height=280 width=1180 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ledger: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+var items = [
+  { label: 'Aderência', value: '31', unit: '%', highlight: true, delta: { direction: 'down', tone: 'bad', value: '16 p.p.' }, compare: 'abaixo do Fable 5.1', note: '124 respostas aceitas sem edição, de 400.' },
+  { label: 'Tickets', value: '400', compare: '1 empresa · suporte', note: 'Amostra fechada antes do teste começar.' },
+  { label: 'Dias', value: '14', compare: '18 – 31 ago', note: 'Duas paradas para ajuste de prompt.' },
+  { label: 'Tempo por ticket', value: '2,4', unit: 'min', delta: { direction: 'down', tone: 'good', value: '53%' }, compare: 'era 5,1 min', note: 'Medido do primeiro contato ao fechamento.' }
+];
+render(h('div', { className: 'ink', style: { padding: '32px' } },
+  h(D.Ledger, { items: items })));
+</script>
+</body>
+</html>

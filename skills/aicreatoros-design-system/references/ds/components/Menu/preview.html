@@ -1,0 +1,23 @@
+<!-- @dsCard group="Produto" height=650 width=900 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Menu: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+var sections = [
+  { label: 'Categorias', items: [{ value: 'all', icon: 'grid', label: 'Todas', count: 24 }, { value: 'modelos', icon: 'doc', label: 'Modelos', count: 9 }, { value: 'ferramentas', icon: 'sliders', label: 'Ferramentas', count: 6 }, { value: 'agentes', icon: 'layers', label: 'Agentes', count: 5 }] },
+  { label: 'Trabalho', items: [{ value: 'editor', icon: 'pen', label: 'Rascunhos', count: 2 }, { value: 'agendados', icon: 'clock', label: 'Agendados', count: 1 }] },
+  { label: 'Canais', items: [{ value: 'news', icon: 'mail', label: 'Newsletter', status: 'positive', statusLabel: 'Sincronizado' }, { value: 'site', icon: 'doc', label: 'Site', status: 'positive', statusLabel: 'Sincronizado' }, { value: 'insta', icon: 'image', label: 'Instagram', status: 'warn', statusLabel: 'Atrasado' }] }
+];
+function col(title, menu) {
+  return h('div', { style: { display: 'grid', gap: '12px', alignContent: 'start' } }, h('span', { className: 'mono muted' }, title), menu);
+}
+render(h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(2, 232px)', gap: '32px', padding: '12px', background: 'var(--soft)', borderRadius: '24px' } },
+  col('Papel', h(D.Menu, { title: 'Acervo', searchLabel: 'Buscar no acervo', sections: sections })),
+  col('Tinta', h(D.Menu, { variant: 'ink', title: 'Acervo', searchLabel: 'Buscar no acervo', sections: sections }))));
+</script>
+</body>
+</html>

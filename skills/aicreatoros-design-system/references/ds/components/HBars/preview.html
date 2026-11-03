@@ -1,0 +1,18 @@
+<!-- @dsCard group="Dados" height=250 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HBars: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+render(h(D.Panel, { title: 'Assinaturas por origem', caption: '412 no período', style: { maxWidth: '480px' } },
+  h(D.HBars, { items: [
+    { label: 'Matéria', value: 214, highlight: true },
+    { label: 'Home', value: 118 },
+    { label: 'Social', value: 80 }
+  ] })));
+</script>
+</body>
+</html>

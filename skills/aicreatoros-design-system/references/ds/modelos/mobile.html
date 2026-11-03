@@ -1,0 +1,55 @@
+<!doctype html>
+<!--
+Modelo: três telas mobile de 390 px (leitura, acervo, inscrição) com densidade confortável: 40 px em botão, campo e barra de ícones.
+Capítulo do kit: #mobile (.phones .phone .ph-top .ph-body .ph-list .ph-bar), com .field/.inp, .chips e .swrow.
+Trocar: títulos, imagens (../assets/img/*.webp), itens da lista, filtros, texto do formulário.
+Movimento: só data-reveal nas telas, em cascata (capítulo 15 do kit).
+Não mexer: data-density="confortavel" em cada .phone, tipografia do desktop (não encolher), uma ação laranja por tela.
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mobile · AiCreatorOS</title>
+<script>try{if(localStorage.getItem('aios-tema')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../kit-v9/kit.css">
+<style>
+body{padding:40px 24px}
+.phones{justify-content:center;margin-inline:auto}
+.phone .ph-top{min-height:61px}
+@media(max-width:860px){body{padding:24px 16px}}
+@media(max-width:560px){body{padding:16px 0}.phones{max-width:none}.phone{width:100%;border-radius:0;border-inline:0}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="mark" viewBox="0 0 40 16"><circle cx="3" cy="8" r="3" fill="var(--m1,#F05A37)"></circle><circle cx="15" cy="8" r="5" fill="var(--m2,#8D8B86)"></circle><circle cx="32" cy="8" r="8" fill="var(--m3,#1D1D1B)"></circle></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="m20 20-4.3-4.3"></path></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7"></rect><rect x="13" y="4" width="7" height="7"></rect><rect x="4" y="13" width="7" height="7"></rect><rect x="13" y="13" width="7" height="7"></rect></symbol>
+<symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4l11-11-4-4L4 16z"></path><path d="M14 5l4 4"></path></symbol>
+<symbol id="i-ruler" viewBox="0 0 24 24"><path d="M3 17 17 3l4 4L7 21z"></path><path d="M7 7l2 2"></path><path d="M10 4l2 2"></path><path d="M13 9l2 2"></path><path d="M9 13l2 2"></path></symbol>
+<symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3"></path><path d="M12 19v3"></path><path d="M4.2 4.2l2.1 2.1"></path><path d="M17.7 17.7l2.1 2.1"></path><path d="M2 12h3"></path><path d="M19 12h3"></path><path d="M4.2 19.8l2.1-2.1"></path><path d="M17.7 6.3l2.1-2.1"></path></symbol>
+</svg>
+
+<div class="phones" data-stagger>
+<div class="phone" data-density="confortavel" data-reveal aria-label="Leitura"><div class="ph-top"><span class="brand" style="gap:8px"><svg class="mark" style="width:28px;height:11px" aria-hidden="true"><use href="#mark"></use></svg><span class="wordmark" style="font-size:17px">aicreator<em>os</em></span></span><button class="ico ico-sm" type="button" aria-label="Buscar"><svg class="i" aria-hidden="true"><use href="#i-search"></use></svg></button></div>
+<div class="ph-body"><span class="mono muted">Modelos · 14 set</span><h4>Antes de adotar, <em>entenda.</em></h4><img src="../assets/img/astra.webp" alt="Templo de colunas com uma porta estreita irradiando luz laranja."><p>Entre o anúncio e a sua rotina existe uma pergunta que ninguém responde no palco: o que muda no seu trabalho na segunda-feira?</p><div class="foot" style="padding-top:12px"><span class="mono">6 min</span><a class="ico ico-sm ico-orange" href="materia.html" aria-label="Ler a matéria"><svg class="i" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div></div></div>
+
+<div class="phone" data-density="confortavel" data-reveal aria-label="Acervo"><div class="ph-top"><span style="font-size:19px;letter-spacing:-.035em;font-weight:500">Acervo</span><span class="badge">24</span></div>
+<div class="ph-body"><div class="chips" data-group="m-filtros" role="group" aria-label="Filtro"><button class="chip" type="button" aria-pressed="true">Todas</button><button class="chip" type="button" aria-pressed="false">Modelos</button><button class="chip" type="button" aria-pressed="false">Agentes</button></div>
+<div class="ph-list">
+<a href="materia.html"><img src="../assets/img/fable.webp" alt=""><span><span class="mono">Modelos · 12 set</span><h4>Claude Fable 5.1</h4></span></a>
+<a href="materia.html"><img src="../assets/img/mcp.webp" alt=""><span><span class="mono">Agentes · 08 set</span><h4>Caminhos do MCP</h4></span></a>
+<a href="materia.html"><img src="../assets/img/gemini.webp" alt=""><span><span class="mono">Modelos · 05 set</span><h4>Gemini 3.8 Flash</h4></span></a>
+<a href="materia.html"><img src="../assets/img/busto.webp" alt=""><span><span class="mono">Ferramentas · 10 set</span><h4>Muse Spark 1.3</h4></span></a>
+</div></div>
+<div class="ph-bar"><button type="button" aria-pressed="true" aria-label="Acervo"><svg class="i" aria-hidden="true"><use href="#i-grid"></use></svg></button><button type="button" aria-label="Rascunhos"><svg class="i" aria-hidden="true"><use href="#i-pen"></use></svg></button><button type="button" aria-label="Métricas"><svg class="i" aria-hidden="true"><use href="#i-ruler"></use></svg></button><button type="button" aria-label="Ajustes"><svg class="i" aria-hidden="true"><use href="#i-settings"></use></svg></button></div></div>
+
+<form class="phone" data-density="confortavel" data-reveal aria-label="Inscrição" novalidate><div class="ph-top"><span class="brand" style="gap:8px"><svg class="mark" style="width:28px;height:11px" aria-hidden="true"><use href="#mark"></use></svg><span class="wordmark" style="font-size:17px">aicreator<em>os</em></span></span><span class="mono muted">Edição 07</span></div>
+<div class="ph-body"><h4>Uma edição por semana, <em>com a fonte ao lado.</em></h4><p>12.400 assinantes recebem a edição toda segunda.</p><label class="field"><span>Seu e-mail</span><span class="inp"><input type="email" placeholder="voce@exemplo.com" autocomplete="email"></span></label><button class="btn btn-primary" type="submit" style="width:100%;justify-content:center">Assinar <svg class="i" aria-hidden="true"><use href="#i-arrow"></use></svg></button><span class="badge badge-pos" data-ok hidden>Inscrição confirmada</span><span class="help">Sem spam. Cancele quando quiser.</span><div class="dash"></div><div class="swrow"><span style="font-size:14px">Avisos de teste</span><button class="sw" type="button" role="switch" aria-checked="true" aria-label="Avisos de teste"></button></div></div></form>
+</div>
+<script src="../kit-v9/kit.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!-- @dsCard group="Feedback" height=290 width=900 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EmptyState: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+render(h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', alignItems: 'start' } },
+  h(D.EmptyState, { title: h(React.Fragment, null, 'Nenhum rascunho ', h('em', null, 'ainda.')),
+    actions: h(D.Button, { variant: 'primary', icon: 'plus' }, 'Nova matéria') },
+    'Toda matéria começa por uma pauta. A primeira leva cerca de dois minutos.'),
+  h(D.EmptyState, { tone: 'error', title: h(React.Fragment, null, 'O envio ', h('em', null, 'parou.')),
+    actions: h('div', { className: 'chips', style: { justifyContent: 'center' } },
+      h(D.Button, { variant: 'line' }, 'Ver registro'), h(D.Button, { variant: 'primary' }, 'Tentar de novo')) },
+    'Falha na conexão com o provedor de e-mail às 09:44. Nada foi enviado em duplicidade.')));
+</script>
+</body>
+</html>

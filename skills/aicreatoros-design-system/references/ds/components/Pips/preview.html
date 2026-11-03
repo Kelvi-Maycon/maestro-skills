@@ -1,0 +1,15 @@
+<!-- @dsCard group="Dados" height=150 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pips: preview</title></head>
+<body>
+<div id="root" style="padding:24px"></div>
+<script>
+var D = window.AiCreatorOSDesignSystem_a9067e, h = React.createElement;
+function render(node) { ReactDOM.createRoot(document.getElementById('root')).render(node); }
+render(h('div', { className: 'card pad stack', style: { maxWidth: '360px', gap: '12px' } },
+  h(D.Pips, { total: 10, filled: 4, highlighted: 3, label: '7 de 10 testes: 4 publicados, 3 em revisão' }),
+  h('span', { className: 'help' }, '4 publicados · 3 em revisão · meta 10')));
+</script>
+</body>
+</html>

@@ -1,0 +1,534 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "build/**",
+              "kit-v9/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Instrument Sans|ITC Garamond Cond|JetBrains Mono))/i]",
+        "message": "Font not provided by the design system. Available: Instrument Sans, ITC Garamond Cond, JetBrains Mono."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Wordmark": {
+        "replaces": []
+      },
+      "Icon": {
+        "replaces": []
+      },
+      "Anchor": {
+        "replaces": []
+      },
+      "Label": {
+        "replaces": []
+      },
+      "Button": {
+        "replaces": []
+      },
+      "IconButton": {
+        "replaces": []
+      },
+      "Link": {
+        "replaces": []
+      },
+      "Input": {
+        "replaces": []
+      },
+      "Select": {
+        "replaces": []
+      },
+      "Switch": {
+        "replaces": []
+      },
+      "Checkbox": {
+        "replaces": []
+      },
+      "ChipGroup": {
+        "replaces": []
+      },
+      "Segmented": {
+        "replaces": []
+      },
+      "Tabs": {
+        "replaces": []
+      },
+      "Kbd": {
+        "replaces": []
+      },
+      "Badge": {
+        "replaces": []
+      },
+      "Status": {
+        "replaces": []
+      },
+      "Delta": {
+        "replaces": []
+      },
+      "Toast": {
+        "replaces": []
+      },
+      "Banner": {
+        "replaces": []
+      },
+      "Tooltip": {
+        "replaces": []
+      },
+      "Dialog": {
+        "replaces": []
+      },
+      "Meter": {
+        "replaces": []
+      },
+      "EmptyState": {
+        "replaces": []
+      },
+      "Skeleton": {
+        "replaces": []
+      },
+      "Card": {
+        "replaces": []
+      },
+      "Row": {
+        "replaces": []
+      },
+      "Quote": {
+        "replaces": []
+      },
+      "Note": {
+        "replaces": []
+      },
+      "Avatar": {
+        "replaces": []
+      },
+      "Reader": {
+        "replaces": []
+      },
+      "Spec": {
+        "replaces": []
+      },
+      "Slide": {
+        "replaces": []
+      },
+      "DataPanel": {
+        "replaces": []
+      },
+      "Ledger": {
+        "replaces": []
+      },
+      "TargetTrack": {
+        "replaces": []
+      },
+      "Metric": {
+        "replaces": []
+      },
+      "Stat": {
+        "replaces": []
+      },
+      "Stats": {
+        "replaces": []
+      },
+      "Spark": {
+        "replaces": []
+      },
+      "Ring": {
+        "replaces": []
+      },
+      "Pips": {
+        "replaces": []
+      },
+      "Sparkline": {
+        "replaces": []
+      },
+      "Chart": {
+        "replaces": []
+      },
+      "StackBar": {
+        "replaces": []
+      },
+      "Breakdown": {
+        "replaces": []
+      },
+      "Insight": {
+        "replaces": []
+      },
+      "Legend": {
+        "replaces": []
+      },
+      "HBars": {
+        "replaces": []
+      },
+      "Funnel": {
+        "replaces": []
+      },
+      "Panel": {
+        "replaces": []
+      },
+      "SecHead": {
+        "replaces": []
+      },
+      "Toolbar": {
+        "replaces": []
+      },
+      "Table": {
+        "replaces": []
+      },
+      "Workspace": {
+        "replaces": []
+      },
+      "Rail": {
+        "replaces": []
+      },
+      "Menu": {
+        "replaces": []
+      },
+      "ContentPanel": {
+        "replaces": []
+      },
+      "MiniGrid": {
+        "replaces": []
+      },
+      "Mini": {
+        "replaces": []
+      },
+      "Editor": {
+        "replaces": []
+      },
+      "Log": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--accent",
+      "--accent-on",
+      "--attention",
+      "--border-card",
+      "--border-control",
+      "--border-dash",
+      "--border-ink",
+      "--bp-lg",
+      "--bp-md",
+      "--bp-sm",
+      "--bw",
+      "--card",
+      "--ctl",
+      "--dur-draw",
+      "--dur-enter",
+      "--dur-fast",
+      "--dur-hero",
+      "--dur-image",
+      "--dur-press",
+      "--dur-slow",
+      "--ease",
+      "--ease-back",
+      "--ease-in-out",
+      "--ease-out",
+      "--focus-offset",
+      "--focus-ring",
+      "--focus-width",
+      "--font-data",
+      "--font-editorial",
+      "--font-ui",
+      "--fs-body",
+      "--fs-control",
+      "--fs-display",
+      "--fs-h2",
+      "--fs-h3",
+      "--fs-lead",
+      "--fs-meta",
+      "--fs-mono",
+      "--fs-num",
+      "--fs-ui",
+      "--gap-block",
+      "--gap-group",
+      "--gap-inline",
+      "--gap-item",
+      "--gap-label",
+      "--gap-section",
+      "--gutter",
+      "--gutter-md",
+      "--gutter-sm",
+      "--h-badge",
+      "--h-control",
+      "--h-control-lg",
+      "--h-control-sm",
+      "--h-field",
+      "--h-round",
+      "--h-round-sm",
+      "--h-row",
+      "--h-seg",
+      "--h-th",
+      "--h-top",
+      "--icon",
+      "--icon-sm",
+      "--icon-xs",
+      "--info",
+      "--info-bg",
+      "--ink",
+      "--ink-2",
+      "--ink-line",
+      "--inset",
+      "--inv-muted",
+      "--lh-body",
+      "--lh-prose",
+      "--lh-serif",
+      "--lh-tight",
+      "--lime",
+      "--lime-line",
+      "--line",
+      "--line-2",
+      "--mark-mid",
+      "--mono",
+      "--muted",
+      "--neg",
+      "--neg-bg",
+      "--on-orange",
+      "--orange",
+      "--page",
+      "--paper",
+      "--pos",
+      "--pos-bg",
+      "--r",
+      "--r-ctl",
+      "--r-ctl-sm",
+      "--r-media",
+      "--r-menu",
+      "--r-pill",
+      "--r-slide",
+      "--r-sm",
+      "--r2",
+      "--s-1",
+      "--s-10",
+      "--s-14",
+      "--s-2",
+      "--s-20",
+      "--s-24",
+      "--s-3",
+      "--s-4",
+      "--s-5",
+      "--s-6",
+      "--s-8",
+      "--sans",
+      "--serif",
+      "--soft",
+      "--stagger",
+      "--state-positive",
+      "--surface-card",
+      "--surface-ink",
+      "--surface-page",
+      "--surface-sunken",
+      "--switch-h",
+      "--switch-knob",
+      "--switch-w",
+      "--text-1",
+      "--text-2",
+      "--text-inv",
+      "--text-inv-2",
+      "--tr-display",
+      "--tr-h2",
+      "--tr-mono",
+      "--tr-serif",
+      "--tr-title",
+      "--veil-ink",
+      "--veil-ink-mid",
+      "--veil-ink-soft",
+      "--w-body",
+      "--w-mark",
+      "--w-strong",
+      "--w-ui",
+      "--warn",
+      "--warn-bg",
+      "--ws-menu",
+      "--ws-rail"
+    ],
+    "tokenKinds": {
+      "--ink": "color",
+      "--ink-2": "color",
+      "--ink-line": "color",
+      "--paper": "color",
+      "--page": "color",
+      "--card": "color",
+      "--soft": "color",
+      "--line": "color",
+      "--ctl": "color",
+      "--muted": "color",
+      "--inv-muted": "color",
+      "--orange": "color",
+      "--lime": "color",
+      "--lime-line": "color",
+      "--mark-mid": "color",
+      "--on-orange": "color",
+      "--text-1": "font",
+      "--text-2": "font",
+      "--text-inv": "font",
+      "--text-inv-2": "font",
+      "--surface-page": "color",
+      "--surface-card": "color",
+      "--surface-sunken": "color",
+      "--surface-ink": "color",
+      "--border-card": "color",
+      "--border-control": "color",
+      "--border-dash": "color",
+      "--border-ink": "color",
+      "--accent": "color",
+      "--accent-on": "color",
+      "--state-positive": "color",
+      "--focus-ring": "color",
+      "--attention": "color",
+      "--line-2": "color",
+      "--pos": "color",
+      "--pos-bg": "color",
+      "--warn": "color",
+      "--warn-bg": "color",
+      "--neg": "color",
+      "--neg-bg": "color",
+      "--info": "color",
+      "--info-bg": "color",
+      "--veil-ink": "color",
+      "--veil-ink-mid": "color",
+      "--veil-ink-soft": "color",
+      "--sans": "font",
+      "--serif": "font",
+      "--mono": "font",
+      "--font-ui": "font",
+      "--font-editorial": "font",
+      "--font-data": "font",
+      "--fs-mono": "spacing",
+      "--fs-meta": "spacing",
+      "--fs-ui": "spacing",
+      "--fs-control": "spacing",
+      "--fs-body": "spacing",
+      "--fs-lead": "spacing",
+      "--fs-h3": "spacing",
+      "--fs-h2": "spacing",
+      "--fs-display": "spacing",
+      "--fs-num": "spacing",
+      "--tr-display": "other",
+      "--tr-title": "other",
+      "--tr-h2": "other",
+      "--tr-serif": "other",
+      "--tr-mono": "other",
+      "--lh-tight": "other",
+      "--lh-serif": "other",
+      "--lh-body": "other",
+      "--lh-prose": "other",
+      "--w-body": "font",
+      "--w-ui": "font",
+      "--w-strong": "font",
+      "--w-mark": "font",
+      "--s-1": "spacing",
+      "--s-2": "spacing",
+      "--s-3": "spacing",
+      "--s-4": "spacing",
+      "--s-5": "spacing",
+      "--s-6": "spacing",
+      "--s-8": "spacing",
+      "--s-10": "spacing",
+      "--s-14": "spacing",
+      "--s-20": "spacing",
+      "--s-24": "spacing",
+      "--r": "spacing",
+      "--r2": "spacing",
+      "--r-media": "spacing",
+      "--r-pill": "spacing",
+      "--r-sm": "spacing",
+      "--r-menu": "spacing",
+      "--r-slide": "spacing",
+      "--gutter": "spacing",
+      "--gutter-md": "spacing",
+      "--gutter-sm": "spacing",
+      "--h-control-sm": "spacing",
+      "--h-control": "spacing",
+      "--h-control-lg": "spacing",
+      "--h-field": "spacing",
+      "--h-round": "radius",
+      "--h-round-sm": "radius",
+      "--h-seg": "spacing",
+      "--h-badge": "spacing",
+      "--h-top": "spacing",
+      "--h-row": "spacing",
+      "--h-th": "spacing",
+      "--inset": "spacing",
+      "--r-ctl": "spacing",
+      "--r-ctl-sm": "spacing",
+      "--gap-inline": "spacing",
+      "--gap-label": "spacing",
+      "--gap-item": "spacing",
+      "--gap-group": "spacing",
+      "--gap-block": "spacing",
+      "--gap-section": "spacing",
+      "--icon": "spacing",
+      "--icon-sm": "spacing",
+      "--icon-xs": "spacing",
+      "--switch-w": "spacing",
+      "--switch-h": "spacing",
+      "--switch-knob": "spacing",
+      "--ws-rail": "spacing",
+      "--ws-menu": "spacing",
+      "--bp-lg": "spacing",
+      "--bp-md": "spacing",
+      "--bp-sm": "spacing",
+      "--bw": "spacing",
+      "--focus-width": "spacing",
+      "--focus-offset": "spacing",
+      "--ease": "other",
+      "--dur-press": "other",
+      "--dur-fast": "other",
+      "--dur-slow": "other",
+      "--dur-image": "other",
+      "--dur-enter": "other",
+      "--dur-draw": "other",
+      "--dur-hero": "other",
+      "--stagger": "other",
+      "--ease-out": "other",
+      "--ease-in-out": "other",
+      "--ease-back": "other"
+    },
+    "fontFamilies": [
+      "ITC Garamond Cond",
+      "Instrument Sans",
+      "JetBrains Mono"
+    ]
+  }
+}
